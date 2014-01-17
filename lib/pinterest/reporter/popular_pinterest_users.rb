@@ -32,7 +32,43 @@ module NokoParser
       return nil
     end
 
-    def get_followers_number(follower_name)
+    def get_pinterest_boards(profile_name)
+      response = Faraday.get("http://www.pinterest.com/#{profile_name}")
+      page     = Nokogiri::HTML(response.body) 
+      titles   = page.css("div[class~=title]")
+      return titles
+      # @boards_hash = Hash.new
+      # @boards_hash["all"] = -1
+      # titles.each_with_index do |title, index|
+      #   puts "#{title.text}"
+      #   @boards_hash["title.text"] = index
+      # end
+      # puts "#{@boards_hash.inspect}"
+    end
+
+    def get_pinterest_user_data(profile_name)
+      #dostaje profile name
+      #tworze usera
+      #wyciagam jego boardy
+      #tworze pinterest boarda
+      # board_resp = Faraday.get("http://www.pinterest.com/#{self.pinterest_profile_name}/#{self.pinterest_board_name}")
+      # board_page = Nokogiri::HTML(board_resp.body) 
+      # # puts "account name: #{board_page.css("h4[class~=fullname]").text} |"
+      # # puts "profile_picture_url: #{board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/div/div/a/div/img/@src")} |"
+      # # puts "description: #{board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/p/text()").strip} |"
+      # # puts "image_count: #{board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/ul/li[1]/a/div/text()").to_s.split[0]}.to_i} |"
+      # # puts "follower_count: #{board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/ul/li[2]/a/text()").to_s.split[0].to_i} |"
+    
+      # social_media_profile = SocialMediaProfile.new({
+      #   social_network:         SocialNetwork.where(network_name:'Pinterest').first,
+      #   profile_name:           self.pinterest_profile_name,
+      #   account_name:           board_page.css("h4[class~=fullname]").text,
+      #   pinterest_board_name:   self.pinterest_board_name, 
+      #   profile_picture_url:    board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/div/div/a/div/img/@src"),
+      #   description:            board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/p/text()").strip,
+      #   image_count:            board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/ul/li[1]/a/div/text()").to_s.split[0].to_i,
+      #   follower_count:         board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/ul/li[2]/a/text()").to_s.split[0].to_i,
+      # })
       returnee = nil
       conn = Faraday.new(:url => "https://instagram.com" ) do |faraday|
         faraday.use FaradayMiddleware::FollowRedirects
@@ -74,25 +110,6 @@ module PintresterGetter
     def initialize
       puts "Starting PinterestGetter!"
       @mongoid_config = Rails.root.join("config", "mongoid.yml").to_s
-
-      # board_resp = Faraday.get("http://www.pinterest.com/#{self.pinterest_profile_name}/#{self.pinterest_board_name}")
-      # board_page = Nokogiri::HTML(board_resp.body) 
-      # # puts "account name: #{board_page.css("h4[class~=fullname]").text} |"
-      # # puts "profile_picture_url: #{board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/div/div/a/div/img/@src")} |"
-      # # puts "description: #{board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/p/text()").strip} |"
-      # # puts "image_count: #{board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/ul/li[1]/a/div/text()").to_s.split[0]}.to_i} |"
-      # # puts "follower_count: #{board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/ul/li[2]/a/text()").to_s.split[0].to_i} |"
-    
-      # social_media_profile = SocialMediaProfile.new({
-      #   social_network:         SocialNetwork.where(network_name:'Pinterest').first,
-      #   profile_name:           self.pinterest_profile_name,
-      #   account_name:           board_page.css("h4[class~=fullname]").text,
-      #   pinterest_board_name:   self.pinterest_board_name, 
-      #   profile_picture_url:    board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/div/div/a/div/img/@src"),
-      #   description:            board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/p/text()").strip,
-      #   image_count:            board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/ul/li[1]/a/div/text()").to_s.split[0].to_i,
-      #   follower_count:         board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/ul/li[2]/a/text()").to_s.split[0].to_i,
-      # })
 
       conn = Faraday.new(:url => API_BASE_URL ) do |faraday|
         faraday.request  :url_encoded

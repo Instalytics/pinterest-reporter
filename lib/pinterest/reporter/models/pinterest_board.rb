@@ -6,6 +6,7 @@ class PinterestBoard
   validates :board_name, uniqueness: true
 
   field :board_name,        type: String
+  field :description,       type: String
   field :followers_count,   type: String
   field :pins_count,        type: String
 
