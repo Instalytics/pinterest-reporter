@@ -32,71 +32,58 @@ module NokoParser
       return nil
     end
 
-    def get_pinterest_boards(profile_name)
-      response = Faraday.get("http://www.pinterest.com/#{profile_name}")
-      page     = Nokogiri::HTML(response.body) 
+    def get_pinterest_boards(pinterest_user)
+      conn = Faraday.new(:url => "http://www.pinterest.com" ) do |faraday|
+        faraday.use FaradayMiddleware::FollowRedirects
+        faraday.adapter :net_http
+      end
+      response = conn.get "/#{pinterest_user.profile_name}"
+      page     = Nokogiri::HTML(response.body)
       titles   = page.css("div[class~=title]")
-      return titles
-      # @boards_hash = Hash.new
-      # @boards_hash["all"] = -1
-      # titles.each_with_index do |title, index|
-      #   puts "#{title.text}"
-      #   @boards_hash["title.text"] = index
-      # end
-      # puts "#{@boards_hash.inspect}"
+      
+      titles.each do title
+        response = conn.get "/#{pinterest_user.profile_name}/#{title.text.strip.downcase.tr(" ", "-")}"
+        board_page     = Nokogiri::HTML(response.body)
+        b = PinterestBoard.create({
+          board_name:       title.text.strip.downcase.tr(" ", "-"), 
+          description:      board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/p/text()").strip
+          followers_count:  board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/ul/li[2]/a/text()").to_s.split[0], 
+          pins_count:       board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/ul/li[1]/a/div/text()").to_s.split[0]
+        })
+        pinterest_user << b
+      end
     end
 
     def get_pinterest_user_data(profile_name)
       #dostaje profile name
       #tworze usera
       #wyciagam jego boardy
-      #tworze pinterest boarda
-      # board_resp = Faraday.get("http://www.pinterest.com/#{self.pinterest_profile_name}/#{self.pinterest_board_name}")
-      # board_page = Nokogiri::HTML(board_resp.body) 
-      # # puts "account name: #{board_page.css("h4[class~=fullname]").text} |"
-      # # puts "profile_picture_url: #{board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/div/div/a/div/img/@src")} |"
-      # # puts "description: #{board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/p/text()").strip} |"
-      # # puts "image_count: #{board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/ul/li[1]/a/div/text()").to_s.split[0]}.to_i} |"
-      # # puts "follower_count: #{board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/ul/li[2]/a/text()").to_s.split[0].to_i} |"
-    
-      # social_media_profile = SocialMediaProfile.new({
-      #   social_network:         SocialNetwork.where(network_name:'Pinterest').first,
-      #   profile_name:           self.pinterest_profile_name,
-      #   account_name:           board_page.css("h4[class~=fullname]").text,
-      #   pinterest_board_name:   self.pinterest_board_name, 
-      #   profile_picture_url:    board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/div/div/a/div/img/@src"),
-      #   description:            board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/p/text()").strip,
-      #   image_count:            board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/ul/li[1]/a/div/text()").to_s.split[0].to_i,
-      #   follower_count:         board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/ul/li[2]/a/text()").to_s.split[0].to_i,
-      # })
-      returnee = nil
-      conn = Faraday.new(:url => "https://instagram.com" ) do |faraday|
-        faraday.use FaradayMiddleware::FollowRedirects
-        faraday.adapter :net_http
-      end
+      #tworze pinterest boardy dla danego usera
 
-      response = conn.get "/#{follower_name}"
-
-      doc = Nokogiri::HTML(response.body)
-      doc.css('script').each do |k|
-        begin
-          JSON.parse(k.content.match(/\[{"componentName".*}\]/).to_s).each do |el|
-            returnee = el['props']['user']
-          end
-        rescue
-        end
-      end
-
+      response = Faraday.get("http://www.pinterest.com/#{profile_name}")
+      page     = Nokogiri::HTML(response.body) 
+      
       i = PinterestUser.create({ 
-        username:          returnee['username'],
-        email:             contact_data_email(returnee['bio']),
-        followers:         returnee['counts']['followed_by'].to_i / 1000,
-        bio:               contact_data(returnee['bio']),
+        username:          profile_name,
+        email:             '',
+        followers:         page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/ul[2]/li[1]/a/span/text()").to_s.split[0].to_i / 1000,
+        bio:               page.css("div[class~=userProfileHeaderBio]").text,
         created_at:        DateTime.now,
         updated_at:        DateTime.now,
         already_presented: false
       })
-      print "." if i.valid?
+      if i.valid? get_pinterest_boards(i)
+
+      puts "#{i.inspect}"  
+      # doc = Nokogiri::HTML(response.body)
+      # doc.css('script').each do |k|
+      #   begin
+      #     JSON.parse(k.content.match(/\[{"componentName".*}\]/).to_s).each do |el|
+      #       returnee = el['props']['user']
+      #     end
+      #   rescue
+      #   end
+      # end    
     end
   end
 end
@@ -104,7 +91,7 @@ end
 module PintresterGetter
   class Main < PinterestInteractionsBase
 
-    #get pinterest user and 
+    #get pinterest users - how to get most popular ones? 
     FOLLOWERS_LIMIT = 10
 
     def initialize
