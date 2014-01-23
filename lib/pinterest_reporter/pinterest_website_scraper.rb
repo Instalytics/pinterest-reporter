@@ -7,8 +7,7 @@ class PinterestWebsiteScraper
     boards   = page.css("div[class~=title]")
     boards.each  do |b| 
       returnee << b.text
-    end
-    puts "boards: #{returnee.size}"  
+    end 
     return returnee
   end
 
