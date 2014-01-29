@@ -13,6 +13,18 @@ describe PinterestWebsiteScraper do
     end
   end
 
+  let(:maryannrizzo_web_profile) do
+    VCR.use_cassette('get_profile_page') do
+      PinterestWebsiteCaller.new.get_profile_page('maryannrizzo')
+    end
+  end
+
+  let(:maryannrizzo_everything_board) do
+    VCR.use_cassette('get_board_page_everything') do
+      PinterestWebsiteCaller.new.get_board_page('maryannrizzo','everything')
+    end
+  end
+
   let(:expected_result_from_profile_page_scraping) do
     {
       "profile_name"        => "Ryan Sammy",
@@ -44,7 +56,7 @@ describe PinterestWebsiteScraper do
     
     it 'returns list of all boards for profile page' do
       VCR.use_cassette('get_pinterest_boards') do
-        expect(subject.get_pinterest_boards(ryansammy_web_profile).size).
+        expect(subject.get_pinterest_boards(maryannrizzo_web_profile).size).
         to eq(81)
       end
     end
