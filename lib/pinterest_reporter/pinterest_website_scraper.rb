@@ -2,31 +2,36 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
   #podaje body dostaje hasha z wszystkimi boardami i ich statystykami dla danego boarda
   
   def get_pinterest_boards(html)
-    returnee = []
     page       = Nokogiri::HTML(html)
     #parse initial page
-    boards   = page.css("div[class~=title]")
-    boards.each  do |b| 
-      returnee << b.text
-    end
+    board_data = Hash.new
     content = page.content
-    
+    #get scrubbedUser JSON and parse it with boards data
+    #
+     scrubbed_user = JSON.parse(content.match(/\{"scrubbedUser":.*\}/).to_s)
+    # #scrubbed_user['tree']['children'][3]['children'][3]['children'][3]['children'][3].to_s
+     json_boards = scrubbed_user['tree']['children'][3]['children'][2]['children'][0]['children'][0]['children'][0]['children']
+
+    # #puts "json boards: #{scrubbed_user['tree']['children'][3]['children'][2]['children'][0]['children'][0]['children'][0]['children'][0].to_s.gsub("=>",":")}"
+
+    json_boards.each do |board|
+      board_id = board['resource']['options']['board_id']
+      board_url =  board['children'][0]['options']['url']
+      board_name = board['children'][0]['options']['title_text'].strip
+      board_data[board_name] = {"id" => board_id, "url" => board_url}
+    end
+    # puts "#{board_data.to_s}"
     @conn = Faraday.new(url: WEB_FETCH_BOARDS_URL) do |faraday|
       faraday.request  :url_encoded
       faraday.use FaradayMiddleware::FollowRedirects
       faraday.adapter  Faraday.default_adapter
     end
-  #  while content.match(/"bookmarks":.*end.{2}\]{1}}{1}/)==nil  do
+
   begin
-    #do this while there is no  "bookmarks": ["-end-“] string in the response body
     options = JSON.parse(content.match(/\{"field_set_key": "grid_item", "username":.*?\]{1}?\}{1}/).to_s)
     app_version = content.match(/"app_version": ".*?"/).to_s.split(":")[1].strip.match(/[^"]+/)
-    puts "Options: #{options['username'].to_s}"
-    puts "App version: #{app_version}"
-
-
-
-    #http://www.pinterest.com/resource/ProfileBoardsResource/get/
+    #puts "Options: #{options['username'].to_s}"
+    #puts "App version: #{app_version}"
     context = {"app_version" => app_version, "https_exp" => false}
     mod = {"name" => "GridItems", "options" => {"scrollable" => true,
       "show_grid_footer"=>false,"centered"=>true,"reflow_all"=>true,
@@ -38,36 +43,41 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
       "append"  => true,
       "error_strategy" => 1}
 
-    #{"options":{"field_set_key":"grid_item","username":"maryannrizzo",
-    #"bookmarks":["LT4xNzc5NjI2OTE0NjQyNjY2OTk6MTQ4fDQxYmUyNzJiNmFkMjk5ZjhkMDBjZjkzMDFiMzA5ZThiMWVjY2VhYzYwZjY3OGVjNDJiYmJlM2MwMjQ3ZDkxMWQ="]},
-    #"context":{"app_version":"","https_exp":false},"module":{"name":"GridItems",
-    #"options":{"scrollable":true,"show_grid_footer":false,"centered":true,
-    #"reflow_all":true,"virtualize":true,
-    #"item_options":{"show_board_context":true,"show_user_icon":false},
-    #"layout":"fixed_height"}},"append":true,"error_strategy":1}
-    puts "data: #{JSON.generate(data).to_s}"
-
-
     resp = @conn.get do |req|    
-      req.params['source_url'] = "/#{options['username'].to_s}/"                       # GET http://sushi.com/search?page=2&limit=100
+      req.params['source_url'] = "/#{options['username'].to_s}/"
       req.params['data'] = JSON.generate(data)
       req.params['-'] = 139094526248
       req.headers['X-Requested-With'] = 'XMLHttpRequest'
+    end 
+    content = resp.body 
+    #puts "#{content}"
+    #puts "data: #{JSON.generate(data).to_s}"
+    scrubbed_user = JSON.parse("{#{resp.body.match(/"tree".*}},/).to_s.chop}")
+    #scrubbed_user['tree']['children'][3]['children'][3]['children'][3]['children'][3].to_s
+    json_boards = scrubbed_user['tree']['children']
+    #puts "#{scrubbed_user.to_s}"
+    #puts "json boards: #{scrubbed_user['tree']['children'].to_s}"
+    
+    json_boards.each do |board|
+      board_id = board['resource']['options']['board_id']
+      board_url =  board['children'][0]['options']['url']
+      board_name = board['children'][0]['options']['title_text'].strip
+      board_data[board_name] = {"id" => board_id, "url" => board_url}
     end
 
-    #<div class=\"title\">DIY Green Products</div>
-    #puts "#{resp.body}"
-    #page = resp.body.scan(/"title_text": "[^"]*{1}"/)
-    boards   = resp.body.scan(/"title_text": "[^"]*{1}"/)
-    boards.each  do |b| 
-      returnee << b.split(":")[1].strip.match(/[^"]+/).to_s
-    end
-    content = resp.body 
-  #  end
-  puts "#{options['bookmarks'][0].to_s}"
+
+    #puts "#{board_data.to_s}"
+    #boards   = resp.body.scan(/"title_text": "[^"]*{1}"/)
+    #boards.each  do |b| 
+    #  returnee << b.split(":")[1].strip.match(/[^"]+/).to_s.strip
+    #end
+
+  #puts "#{options['bookmarks'][0].to_s}"
   end while options['bookmarks'][0].to_s!="-end-"
-    puts "#{returnee}"
-    return returnee
+   # puts "#{content}"
+   # puts "#{board_data.to_s}"
+   # puts "#{board_data.size}"
+  return board_data
   end
 
   def get_board_information(html)
@@ -102,6 +112,10 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
     board_page     = Nokogiri::HTML(html)
     likes          = page.css("a[href=\"/pin/#{media_file_id}/likes/\"]").text
     puts "likes: #{likes}"
+  end
+
+  def scrape_board_for_media_files(html)
+
   end
 
 end
