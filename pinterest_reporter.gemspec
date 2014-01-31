@@ -1,10 +1,10 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'GEM/version'
+require 'pinterest_reporter/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "GEM"
+  spec.name          = "pinterest_reporter"
   spec.version       = GEM::VERSION
   spec.authors       = ["luki3k5" "mpikula"]
   spec.email         = ["luki3k5" "mariusz.pikula@gmail.com"]
