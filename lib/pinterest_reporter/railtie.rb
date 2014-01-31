@@ -1,12 +1,8 @@
-require 'pinterest-reporter'
+require 'pinterest_reporter'
 require 'rails'
 
 module PinterestReporter
   class Railtie < Rails::Railtie
-    railtie_name :instagram_reporter
-
-    rake_tasks do
-      load "tasks/pinterest-reporter.rake"
-    end
+    railtie_name :pinterest_reporter
   end
 end
