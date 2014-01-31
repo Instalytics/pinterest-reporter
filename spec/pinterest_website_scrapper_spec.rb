@@ -28,7 +28,7 @@ describe PinterestWebsiteScraper do
   let(:expected_result_from_profile_page_scraping) do
     {
       "profile_name"        => "Ryan Sammy",
-      "followers_count"     => "868",
+      "followers_count"     => "870",
       "profile_description" => "Food Lover, BMW Fanatic, and Craft Beer Connoisseur",
       "boards_count"        => "81",
       "pins_count"          => "1793",
@@ -42,7 +42,7 @@ describe PinterestWebsiteScraper do
       "board_name"      => "BMW",
       "description"     => "The cars I dream about.",
       "pins_count"      => "241",
-      "followers_count" => "492"
+      "followers_count" => "491"
     }
   end
 
@@ -57,7 +57,7 @@ describe PinterestWebsiteScraper do
     it 'returns list of all boards for profile page' do
       VCR.use_cassette('get_pinterest_boards') do
         expect(subject.get_pinterest_boards(maryannrizzo_web_profile).size).
-        to eq(81)
+        to eq(231)
       end
     end
 
