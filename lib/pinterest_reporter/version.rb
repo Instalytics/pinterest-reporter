@@ -1,5 +1,3 @@
-module Pinterest
-  module Reporter
-    VERSION = "0.0.3"
-  end
+module PinterestReporter
+  VERSION = "0.0.3"
 end

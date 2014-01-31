@@ -5,7 +5,7 @@ require 'pinterest_reporter/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "pinterest_reporter"
-  spec.version       = GEM::VERSION
+  spec.version       = PinterestReporter::VERSION
   spec.authors       = ["luki3k5" "mpikula"]
   spec.email         = ["luki3k5" "mariusz.pikula@gmail.com"]
   spec.description   = %q{TODO: Write a gem description}
