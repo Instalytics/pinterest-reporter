@@ -54,10 +54,11 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
   def get_board_information(html)
     board_page      = Nokogiri::HTML(html)
     board_name      = board_page.css("h1[class~=boardName]").text
+    full_name       = board_page.css("h4[class~=fullname]").text
     description     = board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/p/text()").to_s.strip
     followers_count = board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/ul/li[2]/a/text()").to_s.strip.split[0]
     pins_count      = board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/ul/li[1]/a/div/text()").to_s.strip.split[0]
-    return {"board_name" => board_name, "description" => description, "pins_count" => pins_count, "followers_count" => followers_count}
+    return {"owner_name" => full_name, "board_name" => board_name, "description" => description, "pins_count" => pins_count, "followers_count" => followers_count}
   end
 
   def scrape_data_for_profile_page(html)
