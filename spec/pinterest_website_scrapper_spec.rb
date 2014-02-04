@@ -7,6 +7,13 @@ describe PinterestWebsiteScraper do
       PinterestWebsiteCaller.new.get_profile_page('ryansammy')
     end
   end
+
+  let(:non_existent_web_profile) do
+    VCR.use_cassette('get_non_existent_profile_page') do
+      PinterestWebsiteCaller.new.get_profile_page('xz')
+    end
+  end
+  
   let(:ryansammy_bmw_board) do
     VCR.use_cassette('get_board_page') do
       PinterestWebsiteCaller.new.get_board_page('ryansammy','bmw')
@@ -28,17 +35,18 @@ describe PinterestWebsiteScraper do
   let(:expected_result_from_profile_page_scraping) do
     {
       "profile_name"        => "Ryan Sammy",
-      "followers_count"     => "870",
+      "followers_count"     => "868",
       "profile_description" => "Food Lover, BMW Fanatic, and Craft Beer Connoisseur",
-      "boards_count"        => "81",
-      "pins_count"          => "1793",
+      "boards_count"        => "82",
+      "pins_count"          => "1794",
       "likes_count"         => "279",
-      "followed"            => "524"
+      "followed"            => "525"
     }
   end
 
   let(:expected_results_from_bmw_board_scraping) do
     {
+      "owner_name"      =>"Ryan Sammy",
       "board_name"      => "BMW",
       "description"     => "The cars I dream about.",
       "pins_count"      => "241",
@@ -52,6 +60,12 @@ describe PinterestWebsiteScraper do
         expect(subject.scrape_data_for_profile_page(ryansammy_web_profile)).
           to eq(expected_result_from_profile_page_scraping)
       end
+    end
+    
+    it 'returns nil when trying to get non existent profile_page' do
+      VCR.use_cassette('scrape_data_for_profile_page') do
+        expect(subject.scrape_data_for_profile_page(non_existent_web_profile)).to be(nil)
+      end    
     end
     
     it 'returns list of all boards for profile page' do

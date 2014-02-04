@@ -63,6 +63,7 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
 
   def scrape_data_for_profile_page(html)
     page  =  Nokogiri::HTML(html)
+    return nil if !page.css("div[class~=errorMessage]").empty?
     profile_name    = page.css("h1[class~=userProfileHeaderName]").text
     followers_count = page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/ul[2]/li[1]/a/span/text()").to_s.strip.split[0].tr(",", "")
     bio             = page.css("p[class~=userProfileHeaderBio]").text
