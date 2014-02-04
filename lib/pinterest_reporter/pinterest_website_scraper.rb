@@ -2,6 +2,7 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
   
   def get_pinterest_boards(html)
     page       = Nokogiri::HTML(html)
+    return nil if !page.css("div[class~=errorMessage]").empty?
     board_data = Hash.new
     content = page.content
     scrubbed_user = JSON.parse(content.match(/\{"scrubbedUser":.*\}/).to_s)
