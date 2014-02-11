@@ -54,6 +54,9 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
 
   def get_board_information(html)
     board_page      = Nokogiri::HTML(html)
+    
+    return nil if !board_page.content.match(/Follow Board/)
+
     board_name      = board_page.css("h1[class~=boardName]").text
     full_name       = board_page.css("h4[class~=fullname]").text
     description     = board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/p/text()").to_s.strip
@@ -89,6 +92,22 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
   # end
 
   def scrape_board_for_media_files(html)
+
+  end
+
+  def get_followers(html, followers_threshold)
+    #scrape followers page
+    #get followers
+    #those with followers_number for their profile >= followers_threshold - add to result list
+    #
+    #repeat 
+    # => send request for another portion of followers
+    # => scrape request response
+    # => get followers data from response
+    # => those with followers_number for their profile >= followers_threshold - add to result list
+    # => prepare headers for new request
+    #until no more followers left
+    #
 
   end
 
