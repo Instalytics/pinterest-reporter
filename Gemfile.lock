@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pinterest_reporter (0.0.7)
+    pinterest_reporter (0.0.8)
       capybara
       faraday
       faraday_middleware

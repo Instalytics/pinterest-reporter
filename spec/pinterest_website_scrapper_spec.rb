@@ -20,6 +20,13 @@ describe PinterestWebsiteScraper do
     end
   end
 
+  let(:cespins_mens_clothing_board) do
+    VCR.use_cassette('get_board_page') do
+      PinterestWebsiteCaller.new.get_board_page('CESPINS','men-clothing')
+    end
+  end
+
+
   let(:ryansammy_non_existent_board) do
     VCR.use_cassette('get_board_page') do
       PinterestWebsiteCaller.new.get_board_page('ryansammy','i_do_not_exist_board')
@@ -60,6 +67,16 @@ describe PinterestWebsiteScraper do
     }
   end
 
+  let(:expected_results_from_cespins_mens_clothing_board_scraping) do
+    {
+      "owner_name"      => "",
+      "board_name"      => "Men Clothing",
+      "description"     => "Welcome to this board and many thanks for all your contributions. Men's clothing only. Constant repins will be deleted. Pins without source links will be deleted.    beautifulambience1@gmail.com",
+      "pins_count"      => "43343",
+      "followers_count" => "20967"
+    }
+  end
+
   describe '#scrape_data_for_profile_page' do
     it 'gets the data from page' do
       VCR.use_cassette('scrape_data_for_profile_page') do
@@ -95,6 +112,13 @@ describe PinterestWebsiteScraper do
       VCR.use_cassette('get_board_information') do
         expect(subject.get_board_information(ryansammy_bmw_board)).
         to eq(expected_results_from_bmw_board_scraping)
+      end
+    end
+
+    it "gets data for given pinterest board with large number of followers" do
+      VCR.use_cassette('get_board_information') do
+        expect(subject.get_board_information(cespins_mens_clothing_board)).
+        to eq(expected_results_from_cespins_mens_clothing_board_scraping)
       end
     end
 
