@@ -5,7 +5,7 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
     return nil if !page.css("div[class~=errorMessage]").empty?
     board_data = Hash.new
     content = page.content
-    scrubbed_user = JSON.parse(content.match(/\{"scrubbedUser":.*\}/).to_s)
+    scrubbed_user = JSON.parse(content.match(/\{"gaAccountNumbers":.*\}/).to_s)
     json_boards = scrubbed_user['tree']['children'][3]['children'][2]['children'][0]['children'][0]['children'][0]['children']
     json_boards.each do |board|
       board_id = board['resource']['options']['board_id']
@@ -18,7 +18,6 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
       faraday.use FaradayMiddleware::FollowRedirects
       faraday.adapter  Faraday.default_adapter
     end
-
   begin
     options = JSON.parse(content.match(/\{"field_set_key": "grid_item", "username":.*?\]{1}?\}{1}/).to_s)
     app_version = content.match(/"app_version": ".*?"/).to_s.split(":")[1].strip.match(/[^"]+/)

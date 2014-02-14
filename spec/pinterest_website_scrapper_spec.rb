@@ -48,12 +48,12 @@ describe PinterestWebsiteScraper do
   let(:expected_result_from_profile_page_scraping) do
     {
       "profile_name"        => "Ryan Sammy",
-      "followers_count"     => "868",
+      "followers_count"     => "869",
       "profile_description" => "Food Lover, BMW Fanatic, and Craft Beer Connoisseur",
       "boards_count"        => "82",
       "pins_count"          => "1794",
-      "likes_count"         => "279",
-      "followed"            => "525"
+      "likes_count"         => "278",
+      "followed"            => "526"
     }
   end
 
@@ -63,7 +63,7 @@ describe PinterestWebsiteScraper do
       "board_name"      => "BMW",
       "description"     => "The cars I dream about.",
       "pins_count"      => "241",
-      "followers_count" => "491"
+      "followers_count" => "492"
     }
   end
 
@@ -72,8 +72,8 @@ describe PinterestWebsiteScraper do
       "owner_name"      => "",
       "board_name"      => "Men Clothing",
       "description"     => "Welcome to this board and many thanks for all your contributions. Men's clothing only. Constant repins will be deleted. Pins without source links will be deleted.    beautifulambience1@gmail.com",
-      "pins_count"      => "43343",
-      "followers_count" => "20967"
+      "pins_count"      => "43426",
+      "followers_count" => "21013"
     }
   end
 
@@ -94,7 +94,7 @@ describe PinterestWebsiteScraper do
     it 'returns list of all boards for profile page' do
       VCR.use_cassette('get_pinterest_boards_list_all_boards') do
         expect(subject.get_pinterest_boards(maryannrizzo_web_profile).size).
-        to eq(237)
+        to eq(238)
       end
     end
 
