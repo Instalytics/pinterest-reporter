@@ -18,4 +18,8 @@ class PinterestWebsiteCaller < PinterestInteractionsBase
   def get_board_page(account_name, board_name)
     @website_connection.get("/#{account_name}/#{board_name.strip.downcase.tr(" ", "-")}").body
   end
+
+  def get_followers_page(account_name)
+    @website_connection.get("/#{account_name}/followers").body
+  end
 end

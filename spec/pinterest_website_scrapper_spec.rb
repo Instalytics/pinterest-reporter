@@ -33,6 +33,12 @@ describe PinterestWebsiteScraper do
     end
   end
 
+  let(:ryansammy_followers_page) do
+    VCR.use_cassette('get_followers_page') do
+      PinterestWebsiteCaller.new.get_followers_page('ryansammy')
+    end
+  end
+
   let(:maryannrizzo_web_profile) do
     VCR.use_cassette('get_profile_page') do
       PinterestWebsiteCaller.new.get_profile_page('maryannrizzo')
@@ -128,6 +134,14 @@ describe PinterestWebsiteScraper do
         to be(nil)
       end
     end
+  end
 
+  describe "#get followers data" do
+    it "gets followers data meeting given criteria for profile name" do
+      VCR.use_cassette('get_followers_data') do
+     # puts "testing followers data fetching #{ryansammy_followers_page.inspect}"
+      expect(subject.get_followers(ryansammy_followers_page)).to be(nil)
+      end
+    end
   end
 end

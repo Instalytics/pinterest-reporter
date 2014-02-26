@@ -1,5 +1,72 @@
 class PinterestWebsiteScraper < PinterestInteractionsBase
   
+  def get_followers(html, threshold)
+    puts "in get followers"
+    page       = Nokogiri::HTML(html)
+    #puts "page : #{page.inspect}"
+    followers_list = Hash.new
+    content = page.content
+    options = JSON.parse(content.match(/{"username": "\w+?", "bookmarks":[^-]*?\]}/).to_s)
+    app_version = content.match(/"app_version": ".*?"/).to_s.split(":")[1].strip.match(/[^"]+/)
+    followers = page.css("a[class=userWrapper]")
+    followers.each do |follower|
+      follower_name      = follower.text.tr("\n", "").strip.match(/\S.+?  /).to_s.strip
+      follower_url       = follower.attribute('href').value
+      follower_pins      = follower.text.tr("\n", "").strip.match(/\d*[,]?\d+ Pin/).to_s.strip.split[0].tr(",","")
+      follower_followers = follower.text.tr("\n", "").strip.match(/\d*[,]?\d+ Follower/).to_s.strip.split[0].tr(",","")
+      followers_list[follower_name] = {
+        "url" => follower_url,
+        "pins" => follower_pins,
+        "followers" => follower_followers
+      } if follower_followers.to_i >= threshold
+    end
+    @conn = Faraday.new(url: WEB_FETCH_FOLLOWERS_URL) do |faraday|
+      faraday.request  :url_encoded
+      faraday.use FaradayMiddleware::FollowRedirects
+      faraday.adapter  Faraday.default_adapter
+    end
+    begin
+      context = {"app_version" => app_version, "https_exp" => false}
+      mod = {"name" => "GridItems", "options" => {"scrollable" => true,
+      "show_grid_footer"=>false,"centered"=>true,"reflow_all"=>true,
+      "virtualize"=>true,"layout" => "fixed_height"}}
+      data = {"options" => options,
+      "context" => context,
+      "module" => mod,
+      "append"  => true,
+      "error_strategy" => 1}
+      resp = @conn.get do |req|    
+        req.params['source_url'] = "/#{options['username'].to_s}/followers/"
+        req.params['data'] = JSON.generate(data)
+        req.params['-'] = 139094526248
+        req.headers['X-Requested-With'] = 'XMLHttpRequest'
+      end 
+      #puts "data: #{JSON.generate(data)}"
+      body_json = JSON.parse(resp.body)
+      page = Nokogiri::HTML(body_json['module']['html']) 
+      #puts "#{page}"
+      content = page.content
+      followers = page.css("a[class=userWrapper]")
+    #puts "inspecting followers: #{followers.inspect}"
+    
+      followers.each do |follower|
+        follower_name      = follower.text.tr("\n", "").strip.match(/\S.+?  /).to_s.strip
+        follower_url       = follower.attribute('href').value
+        follower_pins      = follower.text.tr("\n", "").strip.match(/\d*[,]?\d+ Pin/).to_s.strip.split[0].tr(",","")
+        follower_followers = follower.text.tr("\n", "").strip.match(/\d*[,]?\d+ Follower/).to_s.strip.split[0].tr(",","")
+        followers_list[follower_name] = {
+          "url" => follower_url,
+          "pins" => follower_pins,
+          "followers" => follower_followers
+        } if follower_followers.to_i >= threshold
+      end
+      options = body_json['module']['tree']['resource']['options']
+      app_version = body_json['client_context']['app_version']
+    end while options['bookmarks'][0].to_s!="-end-"
+    puts "Total Followers: #{followers_list.count}"
+    return followers_list
+  end
+  
   def get_pinterest_boards(html)
     page       = Nokogiri::HTML(html)
     return nil if !page.css("div[class~=errorMessage]").empty?
@@ -31,7 +98,6 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
       "module" => mod,
       "append"  => true,
       "error_strategy" => 1}
-
     resp = @conn.get do |req|    
       req.params['source_url'] = "/#{options['username'].to_s}/"
       req.params['data'] = JSON.generate(data)
@@ -94,7 +160,7 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
 
   end
 
-  def get_followers(html, followers_threshold)
+  #def get_followers(html, followers_threshold)
     #scrape followers page
     #get followers
     #those with followers_number for their profile >= followers_threshold - add to result list
@@ -108,6 +174,6 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
     #until no more followers left
     #
 
-  end
+  #end
 
 end
