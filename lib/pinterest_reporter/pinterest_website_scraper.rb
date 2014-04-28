@@ -1,7 +1,6 @@
 class PinterestWebsiteScraper < PinterestInteractionsBase
   
   def get_followers(html, threshold)
-    puts "in get followers"
     page       = Nokogiri::HTML(html)
     #puts "page : #{page.inspect}"
     followers_list = Hash.new

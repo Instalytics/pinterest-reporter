@@ -16,7 +16,11 @@ class PinterestWebsiteCaller < PinterestInteractionsBase
   end
 
   def get_board_page(account_name, board_name)
-    @website_connection.get("/#{account_name}/#{board_name.strip.downcase.tr(" ", "-")}").body
+    begin
+      @website_connection.get("/#{account_name}/#{board_name.strip.downcase.tr(" ", "-")}").body
+    rescue Exception => ex
+      raise "Could not fetch board #{board_name} for #{account_name} pinterest profile. Obtained exception: #{ex.message}"
+    end
   end
 
   def get_followers_page(account_name)
