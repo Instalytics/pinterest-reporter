@@ -8,6 +8,11 @@ describe PinterestWebsiteScraper do
     end
   end
 
+  let(:helloyoga_web_profile) do
+    VCR.use_cassette('helloyoga_profile_page') do
+      PinterestWebsiteCaller.new.get_profile_page('Helloyoga')
+    end
+  end
   let(:non_existent_web_profile) do
     VCR.use_cassette('get_non_existent_profile_page') do
       PinterestWebsiteCaller.new.get_profile_page('xz')
@@ -103,6 +108,14 @@ describe PinterestWebsiteScraper do
         to eq(238)
       end
     end
+
+    it 'returns list of all boards for profile page for helloyoga' do
+      VCR.use_cassette('get_pinterest_boards_list_all_boards_helloyoga') do
+        expect(subject.get_pinterest_boards(helloyoga_web_profile).size).
+        to eq(2)
+      end
+    end
+
 
     it 'returns nil if boards are being fetched for non existent profile page' do
       VCR.use_cassette('get_pinterest_boards_non_existent_profile_page') do

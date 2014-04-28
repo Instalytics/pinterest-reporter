@@ -62,7 +62,7 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
       options = body_json['module']['tree']['resource']['options']
       app_version = body_json['client_context']['app_version']
     end while options['bookmarks'][0].to_s!="-end-"
-    puts "Total Followers: #{followers_list.count}"
+    #puts "Total Followers: #{followers_list.count}"
     return followers_list
   end
   
@@ -73,10 +73,15 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
     content = page.content
     scrubbed_user = JSON.parse(content.match(/\{"gaAccountNumbers":.*\}/).to_s)
     json_boards = scrubbed_user['tree']['children'][3]['children'][2]['children'][0]['children'][0]['children'][0]['children']
+    #puts"#{json_boards.first['children'][1]}"
     json_boards.each do |board|
+      partial_board_data = board['children'][0]['options']
+      if board['children'][0]['options']['title_text'].nil?
+        partial_board_data = board['children'][1]['options']
+      end
       board_id = board['resource']['options']['board_id']
-      board_url =  board['children'][0]['options']['url']
-      board_name = board['children'][0]['options']['title_text'].strip
+      board_url =  partial_board_data['url']
+      board_name = partial_board_data['title_text'].strip
       board_data[board_name] = {"id" => board_id, "url" => board_url}
     end
     @conn = Faraday.new(url: WEB_FETCH_BOARDS_URL) do |faraday|
@@ -107,9 +112,13 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
     scrubbed_user = JSON.parse("{#{resp.body.match(/"tree".*}},/).to_s.chop}")
     json_boards = scrubbed_user['tree']['children']
     json_boards.each do |board|
+      partial_board_data = board['children'][0]['options']
+      if board['children'][0]['options']['title_text'].nil?
+        partial_board_data = board['children'][1]['options']
+      end
       board_id = board['resource']['options']['board_id']
-      board_url =  board['children'][0]['options']['url']
-      board_name = board['children'][0]['options']['title_text'].strip
+      board_url =  partial_board_data['url']
+      board_name = partial_board_data['title_text'].strip
       board_data[board_name] = {"id" => board_id, "url" => board_url}
     end
   end while options['bookmarks'][0].to_s!="-end-"
