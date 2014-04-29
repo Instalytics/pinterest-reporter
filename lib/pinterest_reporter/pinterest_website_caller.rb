@@ -7,6 +7,7 @@ class PinterestWebsiteCaller < PinterestInteractionsBase
     @website_connection = Faraday.new(url: WEB_BASE_URL) do |faraday|
       faraday.request  :url_encoded
       faraday.use FaradayMiddleware::FollowRedirects
+      faraday.use FaradayMiddleware::FollowRedirects, limit: 5
       faraday.adapter  Faraday.default_adapter
     end
   end

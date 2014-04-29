@@ -12,7 +12,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
   response:
     status:
       code: 301
@@ -58,7 +58,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
   response:
     status:
       code: 404
@@ -850,4 +850,50 @@ http_interactions:
         \"https:\\/\\/www.pinterest.com\", \"canDebug\": false});\n    </script>\n</body>\n</html>"
     http_version: 
   recorded_at: Fri, 28 Feb 2014 09:04:52 GMT
+- request:
+    method: get
+    uri: https://pinterest.com/xz
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Accept-Ranges:
+      - bytes
+      Age:
+      - '0'
+      Content-Type:
+      - text/html
+      Date:
+      - Tue, 29 Apr 2014 11:21:47 GMT
+      Location:
+      - http://www.pinterest.com/xz
+      Server:
+      - nginx
+      Via:
+      - 1.1 varnish
+      X-Pinterest-Rid:
+      - '985098669866'
+      X-Varnish:
+      - '1687578058'
+      Content-Length:
+      - '178'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: "<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body
+        bgcolor=\"white\">\r\n<center><h1>301 Moved Permanently</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n"
+    http_version: 
+  recorded_at: Tue, 29 Apr 2014 11:21:47 GMT
 recorded_with: VCR 2.8.0

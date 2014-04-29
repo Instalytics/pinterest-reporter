@@ -59,7 +59,7 @@ describe PinterestWebsiteScraper do
   let(:expected_result_from_profile_page_scraping) do
     {
       "profile_name"        => "Ryan Sammy",
-      "followers_count"     => "877",
+      "followers_count"     => "887",
       "profile_description" => "Food lover, Craft Beer Enthusiast, and BMW fanatic.",
       "boards_count"        => "83",
       "pins_count"          => "1794",
