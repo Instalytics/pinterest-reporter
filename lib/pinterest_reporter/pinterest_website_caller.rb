@@ -6,9 +6,15 @@ class PinterestWebsiteCaller < PinterestInteractionsBase
   def initialize
     @website_connection = Faraday.new(url: WEB_BASE_URL) do |faraday|
       faraday.request  :url_encoded
+      faraday.headers['Connection'] = 'keep-alive'
+      faraday.headers['User-Agent'] = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36'
+      faraday.headers['Accept'] = 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+      faraday.headers['Accept-Language'] = 'en-US,en;q=0.8,pl;q=0.6'
+      faraday.headers['Referer'] = 'https://www.google.pl/'
+      faraday.headers['Dnt'] = '1'
       faraday.use FaradayMiddleware::FollowRedirects
       faraday.use FaradayMiddleware::FollowRedirects, limit: 5
-      faraday.adapter  Faraday.default_adapter
+      faraday.adapter  :net_http
     end
   end
 
