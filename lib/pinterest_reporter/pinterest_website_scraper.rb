@@ -139,9 +139,9 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
 
   def get_latest_pictures_from_board(html)
     board_page      = Nokogiri::HTML(html)
-    matcher = board_page.content.match(/"children": \[{"resource": {"name": "PinResource".*"uid": "Pin-\d*"}\]/)
-    media_files_json = JSON.parse("{#{matcher}}")
-    #puts "#{media_files_json}"
+    #matcher = board_page.content.match(/"children": \[{"resource": {"name": "PinResource".*"uid": "Pin-\d*"}\]/)
+    matcher = board_page.content.match(/{"resource": {"name": "PinResource".*"uid": "Pin-\d*"}/)
+    media_files_json = JSON.parse("{\"children\" : [#{matcher}]}")
     media_table = media_files_json['children']
     if media_table == nil
       result = {

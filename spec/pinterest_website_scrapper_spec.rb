@@ -26,8 +26,8 @@ describe PinterestWebsiteScraper do
   end
 
   let(:cespins_mens_clothing_board) do
-    VCR.use_cassette('get_board_page') do
-      PinterestWebsiteCaller.new.get_board_page('CESPINS','men-clothing')
+    VCR.use_cassette('get_board_page_men_clothing') do
+      PinterestWebsiteCaller.new.get_board_page_from_url("CESPINS/men-clothing")
     end
   end
 
@@ -74,7 +74,7 @@ describe PinterestWebsiteScraper do
       "board_name"      => "BMW",
       "description"     => "The cars I dream about.",
       "pins_count"      => "241",
-      "followers_count" => "497"
+      "followers_count" => "509"
     }
   end
 
@@ -82,9 +82,9 @@ describe PinterestWebsiteScraper do
     {
       "owner_name"      => "",
       "board_name"      => "Men Clothing",
-      "description"     => "Welcome to this board and many thanks for all your contributions. Men's clothing only. Constant repins will be deleted. Pins without source links will be deleted.    beautifulambience1@gmail.com",
-      "pins_count"      => "44800",
-      "followers_count" => "21949"
+      "description"     => "Welcome to this board and many thanks for all your contributions. Men's clothing only. Constant repins will be deleted. Pins without source links will be deleted.    carlapin50@gmail.com",
+      "pins_count"      => "46976",
+      "followers_count" => "23230"
     }
   end
 
