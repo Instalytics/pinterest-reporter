@@ -30,6 +30,14 @@ class PinterestWebsiteCaller < PinterestInteractionsBase
     end
   end
 
+  def get_board_page_from_url(url)
+    begin
+      @website_connection.get(url).body
+    rescue Exception => ex
+      raise "Could not fetch board #{url}. Obtained exception: #{ex.message}"
+    end
+  end
+
   def get_followers_page(account_name)
     @website_connection.get("/#{account_name}/followers").body
   end

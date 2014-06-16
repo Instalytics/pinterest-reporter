@@ -126,6 +126,15 @@ describe PinterestWebsiteScraper do
 
   end
 
+  describe '#get media files from board' do
+    it 'fetches media files from pinterest board' do
+      VCR.use_cassette('get_media_files') do
+        result = subject.get_latest_pictures_from_board(cespins_mens_clothing_board)
+        expect(result).not_to be(nil)
+      end
+    end
+  end
+
   describe "#get boards data" do
     it "gets data for given pinterest board" do
       VCR.use_cassette('get_board_information') do

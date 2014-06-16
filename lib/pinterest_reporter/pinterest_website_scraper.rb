@@ -129,13 +129,55 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
     board_page      = Nokogiri::HTML(html)
     
     return nil if !board_page.content.match(/Follow Board/)
-
     board_name      = board_page.css("h1[class~=boardName]").text.strip
     full_name       = board_page.css("h4[class~=fullname]").text.strip
     description     = board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/p/text()").to_s.strip
     followers_count = board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/ul/li[2]/a/text()").to_s.strip.split[0].tr(",", "")
     pins_count      = board_page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/ul/li[1]/a/div/text()").to_s.strip.split[0].tr(",", "")
     return {"owner_name" => full_name, "board_name" => board_name, "description" => description, "pins_count" => pins_count, "followers_count" => followers_count}
+  end
+
+  def get_latest_pictures_from_board(html)
+    board_page      = Nokogiri::HTML(html)
+    matcher = board_page.content.match(/"children": \[{"resource": {"name": "PinResource".*"uid": "Pin-\d*"}\]/)
+    media_files_json = JSON.parse("{#{matcher}}")
+    #puts "#{media_files_json}"
+    media_table = media_files_json['children']
+    if media_table == nil
+      result = {
+        result: 'error',
+        message: "could not fetch media data from #{board_page}"
+      }
+    else
+      result = parse_media_table(media_table)
+    end
+    result
+  end
+
+  def parse_media_table(media_table)
+    result = []
+    media_table.each do |entry|
+      result.push(parse_single_entry(entry))
+    end
+    { 
+      result: 'ok',
+      data: result
+    }
+  end
+
+  def parse_single_entry(entry)
+    {
+      media_file_id: entry['resource']['options']['id'],
+      images: entry['data']['images'],
+      likes_count: entry['data']['like_count'],
+      description: entry['data']['description'],
+      comments: entry['data']['comment_count'],
+      repin_count: entry['data']['repin_count'],
+      created_at: entry['data']['created_at'],
+      link_to_pin_page: "pin/#{entry['resource']['options']['id']}",
+      is_video: entry['data']['is_video'],
+    #board followers at time of posting
+    }
   end
 
   def scrape_data_for_profile_page(html)
@@ -163,10 +205,6 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
   #   likes          = page.css("a[href=\"/pin/#{media_file_id}/likes/\"]").text
   #   puts "likes: #{likes}"
   # end
-
-  def scrape_board_for_media_files(html)
-
-  end
 
   #def get_followers(html, followers_threshold)
     #scrape followers page
