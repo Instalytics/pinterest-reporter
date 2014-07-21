@@ -18,7 +18,7 @@ describe PinterestWebsiteScraper do
       PinterestWebsiteCaller.new.get_profile_page('xz')
     end
   end
-  
+
   let(:ryansammy_bmw_board) do
     VCR.use_cassette('get_board_page') do
       PinterestWebsiteCaller.new.get_board_page('ryansammy','bmw')
@@ -28,6 +28,12 @@ describe PinterestWebsiteScraper do
   let(:cespins_mens_clothing_board) do
     VCR.use_cassette('get_board_page_men_clothing') do
       PinterestWebsiteCaller.new.get_board_page_from_url("CESPINS/men-clothing")
+    end
+  end
+
+  let(:kidsworld_board) do
+    VCR.use_cassette('get_board_page_kidsworld') do
+      PinterestWebsiteCaller.new.get_board_page_from_url("gluecklich/kidsworld/")
     end
   end
 
@@ -95,24 +101,24 @@ describe PinterestWebsiteScraper do
           to eq(expected_result_from_profile_page_scraping)
       end
     end
-    
+
     it 'returns nil when trying to get non existent profile_page' do
       VCR.use_cassette('scrape_data_for_non_existent_profile_page') do
         expect(subject.scrape_data_for_profile_page(non_existent_web_profile)).to be(nil)
-      end    
+      end
     end
-    
+
     it 'returns list of all boards for profile page' do
       VCR.use_cassette('get_pinterest_boards_list_all_boards') do
         expect(subject.get_pinterest_boards(maryannrizzo_web_profile).size).
-        to eq(238)
+          to eq(238)
       end
     end
 
     it 'returns list of all boards for profile page for helloyoga' do
       VCR.use_cassette('get_pinterest_boards_list_all_boards_helloyoga') do
         expect(subject.get_pinterest_boards(helloyoga_web_profile).size).
-        to eq(2)
+          to eq(2)
       end
     end
 
@@ -120,7 +126,7 @@ describe PinterestWebsiteScraper do
     it 'returns nil if boards are being fetched for non existent profile page' do
       VCR.use_cassette('get_pinterest_boards_non_existent_profile_page') do
         expect(subject.get_pinterest_boards(non_existent_web_profile)).
-        to be(nil)
+          to be(nil)
       end
     end
 
@@ -129,7 +135,8 @@ describe PinterestWebsiteScraper do
   describe '#get media files from board' do
     it 'fetches media files from pinterest board' do
       VCR.use_cassette('get_media_files') do
-        result = subject.get_latest_pictures_from_board(cespins_mens_clothing_board)
+        result = subject.get_latest_pictures_from_board(kidsworld_board)
+        #puts "#{result.inspect}"
         expect(result).not_to be(nil)
       end
     end
@@ -139,30 +146,56 @@ describe PinterestWebsiteScraper do
     it "gets data for given pinterest board" do
       VCR.use_cassette('get_board_information') do
         expect(subject.get_board_information(ryansammy_bmw_board)).
-        to eq(expected_results_from_bmw_board_scraping)
+          to eq(expected_results_from_bmw_board_scraping)
       end
     end
 
     it "gets data for given pinterest board with large number of followers" do
       VCR.use_cassette('get_board_information_large_followers_number') do
         expect(subject.get_board_information(cespins_mens_clothing_board)).
-        to eq(expected_results_from_cespins_mens_clothing_board_scraping)
+          to eq(expected_results_from_cespins_mens_clothing_board_scraping)
       end
     end
 
     it 'returns nil if non existing board name is used for fetching board information' do
       VCR.use_cassette('get_board_information_non_existend_board_name') do
         expect(subject.get_board_information(ryansammy_non_existent_board)).
-        to be(nil)
+          to be(nil)
       end
     end
   end
 
   describe "#get followers data" do
-    xit "gets followers data meeting given criteria for profile name" do
+    it "gets followers data meeting given criteria for profile name" do
+      expected_result = [
+        {
+          "profile_name" => "Ognyan Tortorochev",
+          "url" => "/tortorochev/",
+          "pins" => "54707",
+          "followers" => "188183"
+        },
+        {
+          "profile_name" => "Joani Schofield",
+          "url" => "/joanischofield/",
+          "pins" => "20221", "followers" => "378279"
+        },
+        {
+          "profile_name" => "Jeannie Guzman",
+          "url" => "/jeannieguzman1/",
+          "pins" => "96095",
+          "followers" => "204732"
+        },
+        {
+          "profile_name" =>
+          "CreoleContessa",
+          "url" => "/CreoleContessa/",
+          "pins" => "90217",
+          "followers" => "145352"
+        }
+      ]
       VCR.use_cassette('get_followers_data') do
-     # puts "testing followers data fetching #{ryansammy_followers_page.inspect}"
-      expect(subject.get_followers(ryansammy_followers_page)).to be(nil)
+        result = subject.get_followers(ryansammy_followers_page, 100000)
+        expect(result).to eq(expected_result)
       end
     end
   end
