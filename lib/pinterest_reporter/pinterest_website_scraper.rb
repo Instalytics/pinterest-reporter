@@ -17,7 +17,7 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
         "url" => follower_url,
         "pins" => follower_pins,
         "followers" => follower_followers
-      } if follower_followers.to_i >= threshold
+      } if follower_followers.to_i >= threshold.to_i
     end
     @conn = Faraday.new(url: WEB_FETCH_FOLLOWERS_URL) do |faraday|
       faraday.request  :url_encoded
@@ -55,7 +55,7 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
           "url" => follower_url,
           "pins" => follower_pins,
           "followers" => follower_followers
-        } if follower_followers.to_i >= threshold
+        } if follower_followers.to_i >= threshold.to_i
       end
       options = body_json['module']['tree']['resource']['options']
       app_version = body_json['client_context']['app_version']
