@@ -194,8 +194,15 @@ describe PinterestWebsiteScraper do
         }
       ]
       VCR.use_cassette('get_followers_data') do
-        result = subject.get_followers(ryansammy_followers_page, 100000)
+        result = subject.get_followers(ryansammy_followers_page, 100000, 1000)
         expect(result).to eq(expected_result)
+      end
+    end
+
+    it 'should not process more followers then passed limit' do
+      VCR.use_cassette('get_followers_data') do
+        result = subject.get_followers(ryansammy_followers_page, 0, 100)
+        expect(result.size).to eq(100)
       end
     end
   end

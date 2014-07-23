@@ -1,6 +1,7 @@
 class PinterestWebsiteScraper < PinterestInteractionsBase
 
-  def get_followers(html, threshold)
+  def get_followers(html, threshold, followers_to_process)
+    processed_followers = 0
     page       = Nokogiri::HTML(html)
     followers_list = []
     content = page.content
@@ -18,6 +19,8 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
         "pins" => follower_pins,
         "followers" => follower_followers
       } if follower_followers.to_i >= threshold.to_i
+      processed_followers = processed_followers + 1
+      return followers_list if processed_followers >= followers_to_process
     end
     @conn = Faraday.new(url: WEB_FETCH_FOLLOWERS_URL) do |faraday|
       faraday.request  :url_encoded
@@ -56,6 +59,8 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
           "pins" => follower_pins,
           "followers" => follower_followers
         } if follower_followers.to_i >= threshold.to_i
+        processed_followers = processed_followers + 1
+        return followers_list if processed_followers >= followers_to_process
       end
       options = body_json['module']['tree']['resource']['options']
       app_version = body_json['client_context']['app_version']
