@@ -25,6 +25,12 @@ describe PinterestWebsiteScraper do
     end
   end
 
+  let(:crystalinan_style_board) do
+    VCR.use_cassette('crystalinan_board_page') do
+       PinterestWebsiteCaller.new.get_board_page('crystalinan','style')
+    end
+  end
+
   let(:cespins_mens_clothing_board) do
     VCR.use_cassette('get_board_page_men_clothing') do
       PinterestWebsiteCaller.new.get_board_page_from_url("CESPINS/men-clothing")
@@ -161,6 +167,13 @@ describe PinterestWebsiteScraper do
       VCR.use_cassette('get_board_information_non_existend_board_name') do
         expect(subject.get_board_information(ryansammy_non_existent_board)).
           to be(nil)
+      end
+    end
+
+    it "gets data for given pinterest board with large number of followers" do
+      VCR.use_cassette('get_board_information_crystalinan_style_board') do
+        result = subject.get_board_information(crystalinan_style_board)
+        expect(result).not_to be(nil)
       end
     end
   end
