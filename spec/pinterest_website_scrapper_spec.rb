@@ -185,37 +185,27 @@ describe PinterestWebsiteScraper do
           "profile_name" => "Ognyan Tortorochev",
           "url" => "/tortorochev/",
           "pins" => "54707",
-          "followers" => "188183"
-        },
-        {
-          "profile_name" => "Joani Schofield",
-          "url" => "/joanischofield/",
-          "pins" => "20221", "followers" => "378279"
-        },
-        {
-          "profile_name" => "Jeannie Guzman",
-          "url" => "/jeannieguzman1/",
-          "pins" => "96095",
-          "followers" => "204732"
-        },
-        {
-          "profile_name" =>
-          "CreoleContessa",
-          "url" => "/CreoleContessa/",
-          "pins" => "90217",
-          "followers" => "145352"
+          "followers" => "188597",
+          "info_and_links"=>
+          {
+            "email" => "art_ok@live.com",
+            "website" => "",
+            "location" => "Bratislava",
+            "facebook" => "http://www.facebook.com/thousands.pictures.5",
+            "twitter" => "http://twitter.com/Tortorochev"
+          }
         }
       ]
       VCR.use_cassette('get_followers_data') do
-        result = subject.get_followers(ryansammy_followers_page, 100000, 1000)
+        result = subject.get_followers(ryansammy_followers_page, 100000, 200)
         expect(result).to eq(expected_result)
       end
     end
 
     it 'should not process more followers then passed limit' do
-      VCR.use_cassette('get_followers_data') do
-        result = subject.get_followers(ryansammy_followers_page, 0, 100)
-        expect(result.size).to eq(100)
+      VCR.use_cassette('get_followers_data_all_followers') do
+        result = subject.get_followers(ryansammy_followers_page, 0, 20)
+        expect(result.size).to eq(15)
       end
     end
   end

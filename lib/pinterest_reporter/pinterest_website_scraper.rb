@@ -1,5 +1,7 @@
 class PinterestWebsiteScraper < PinterestInteractionsBase
 
+  EMAIL_PATTERN_MATCH = /([^@\s*]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})/i
+
   def get_followers(html, threshold, followers_to_process)
     processed_followers = 0
     page       = Nokogiri::HTML(html)
@@ -13,12 +15,17 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
       follower_url       = follower.attribute('href').value
       follower_pins      = follower.text.tr("\n", "").strip.match(/\d*[,]?\d+ Pin/).to_s.strip.split[0].tr(",","")
       follower_followers = follower.text.tr("\n", "").strip.match(/\d*[,]?\d+ Follower/).to_s.strip.split[0].tr(",","")
-      followers_list << {
-        "profile_name" => follower_name,
-        "url" => follower_url,
-        "pins" => follower_pins,
-        "followers" => follower_followers
-      } if follower_followers.to_i >= threshold.to_i
+      #puts "#{processed_followers} processing: #{follower_url.tr('/','')}"
+      if follower_followers.to_i >= threshold.to_i 
+        info_and_links = get_info_and_links(follower_url.tr('/',''))
+        followers_list << {
+          "profile_name" => follower_name,
+          "url" => follower_url,
+          "pins" => follower_pins,
+          "followers" => follower_followers,
+          "info_and_links" => info_and_links
+        } if !info_and_links.nil? && should_be_added?(info_and_links)
+      end
       processed_followers = processed_followers + 1
       return followers_list if processed_followers >= followers_to_process
     end
@@ -53,12 +60,17 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
         follower_url       = follower.attribute('href').value
         follower_pins      = follower.text.tr("\n", "").strip.match(/\d*[,]?\d+ Pin/).to_s.strip.split[0].tr(",","")
         follower_followers = follower.text.tr("\n", "").strip.match(/\d*[,]?\d+ Follower/).to_s.strip.split[0].tr(",","")
-        followers_list << {
-          "profile_name" => follower_name,
-          "url" => follower_url,
-          "pins" => follower_pins,
-          "followers" => follower_followers
-        } if follower_followers.to_i >= threshold.to_i
+        #puts "#{processed_followers} processing: #{follower_url.tr('/','')}"
+        if follower_followers.to_i >= threshold.to_i 
+          info_and_links = get_info_and_links(follower_url.tr('/',''))
+          followers_list << {
+            "profile_name" => follower_name,
+            "url" => follower_url,
+            "pins" => follower_pins,
+            "followers" => follower_followers,
+            "info_and_links" => info_and_links
+          } if !info_and_links.nil? && should_be_added?(info_and_links)
+        end
         processed_followers = processed_followers + 1
         return followers_list if processed_followers >= followers_to_process
       end
@@ -138,6 +150,22 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
     return {"owner_name" => full_name, "board_name" => board_name, "description" => description, "pins_count" => pins_count, "followers_count" => followers_count}
   end
 
+  def get_info_and_links(profile_name)
+    html = PinterestWebsiteCaller.new.get_profile_page(profile_name)
+    page      = Nokogiri::HTML(html)
+    return nil if !page.css("div[class~=errorMessage]").empty?
+    email           = contact_data_email(page.css("p[class~=userProfileHeaderBio]").text)
+    website         = page.css("li[class~=websiteWrapper]").text.strip
+    location        = page.css("li[class~=userProfileHeaderLocationWrapper]").text.strip
+    facebook        = get_facebook(page.css("//a[@class=\"facebook\"]/@href"))
+    twitter         = get_twitter(page.css("//a[@class=\"twitter\"]/@href"))
+    return {'email' => email,
+      'website' => website,
+      'location' => location,
+      'facebook' => facebook,
+      'twitter' => twitter}
+  end
+
   def get_latest_pictures_from_board(html)
     board_page      = Nokogiri::HTML(html)
     #matcher = board_page.content.match(/"children": \[{"resource": {"name": "PinResource".*"uid": "Pin-\d*"}\]/)
@@ -195,6 +223,27 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
             "boards_count" => boards, "pins_count" => pins, "likes_count" => likes, "followed" => followed}
   end
 
+private
+  
+  def should_be_added?(data)
+    !data['email'].empty? || !data['facebook'].empty? || !data['website'].empty? || !data['twitter'].empty?
+  end
+
+  def get_facebook(data)
+    return data.first.value if !data.first.nil?
+    return ""
+  end
+
+  def get_twitter(data)
+    return data.first.value if !data.first.nil?
+    return ""
+  end
+
+  def contact_data_email(data)
+    matched = data.match(EMAIL_PATTERN_MATCH)
+    return matched.to_s if matched != nil
+    ""
+  end
   # def scrape_pin_data(html,media_file_id)
   #   # <a class="socialItem likes" href="/pin/2814818491206901/likes/">
   #   #         <em class="likeIconSmall"></em>
