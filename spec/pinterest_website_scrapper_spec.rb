@@ -185,7 +185,7 @@ describe PinterestWebsiteScraper do
           "profile_name" => "Ognyan Tortorochev",
           "url" => "/tortorochev/",
           "pins" => "54707",
-          "followers" => "188593",
+          "followers" => "188597",
           "info_and_links"=>
           {
             "email" => "art_ok@live.com",
