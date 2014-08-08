@@ -2,6 +2,79 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
 
   EMAIL_PATTERN_MATCH = /([^@\s*]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})/i
 
+
+  def get_followers_for_cache(html, threshold, followers_to_process, starting_page)
+    processed_followers = 0
+    fetched_pages = 1
+    page       = Nokogiri::HTML(html)
+    followers_list = []
+    content = page.content
+    options = JSON.parse(content.match(/{"username": "\w+?", "bookmarks":[^-]*?\]}/).to_s)
+    app_version = content.match(/"app_version": ".*?"/).to_s.split(":")[1].strip.match(/[^"]+/)
+    if starting_page == 1
+      followers = page.css("a[class=userWrapper]")
+      followers.each do |follower|
+        follower_url       = follower.attribute('href').value[1..-2]
+        follower_followers = follower.text.tr("\n", "").strip.match(/\d*[,]?\d+ Follower/).to_s.strip.split[0].tr(",","")
+        if follower_followers.to_i >= threshold.to_i
+          followers_list << follower_url
+        end
+      end
+      processed_followers = processed_followers + 1
+      return {
+        'followers_list' => followers_list,
+        'fetched_pages' => fetched_pages
+        } if processed_followers >= followers_to_process
+    end
+
+    conn = Faraday.new(url: WEB_FETCH_FOLLOWERS_URL) do |faraday|
+      faraday.request  :url_encoded
+      faraday.use FaradayMiddleware::FollowRedirects
+      faraday.adapter  Faraday.default_adapter
+    end
+
+    begin
+      context = {"app_version" => app_version, "https_exp" => false}
+      mod = {"name" => "GridItems", "options" => {"scrollable" => true,
+                                                  "show_grid_footer"=>false,"centered"=>true,"reflow_all"=>true,
+                                                  "virtualize"=>true,"layout" => "fixed_height"}}
+      data = {"options" => options,
+              "context" => context,
+              "module" => mod,
+              "append"  => true,
+              "error_strategy" => 1}
+      resp = conn.get do |req|
+        req.params['source_url'] = "/#{options['username'].to_s}/followers/"
+        req.params['data'] = JSON.generate(data)
+        req.params['-'] = 139094526248
+        req.headers['X-Requested-With'] = 'XMLHttpRequest'
+      end
+      body_json = JSON.parse(resp.body)
+      page = Nokogiri::HTML(body_json['module']['html'])
+      content = page.content
+      fetched_pages = fetched_pages + 1
+      if fetched_pages >= starting_page
+        followers = page.css("a[class=userWrapper]")
+        followers.each do |follower|
+          follower_url       = follower.attribute('href').value[1..-2]
+          follower_followers = follower.text.tr("\n", "").strip.match(/\d*[,]?\d+ Follower/).to_s.strip.split[0].tr(",","")
+          if follower_followers.to_i >= threshold.to_i
+            followers_list << follower_url
+          end
+          processed_followers = processed_followers + 1
+          return {
+            'followers_list' => followers_list,
+            'fetched_pages' => fetched_pages
+          } if processed_followers >= followers_to_process
+        end
+      end
+      options = body_json['module']['tree']['resource']['options']
+      app_version = body_json['client_context']['app_version']
+    end while options['bookmarks'][0].to_s!="-end-"
+    fetched_pages = -1 if options['bookmarks'][0].to_s=="-end-"
+    return { 'followers_list' => followers_list, 'fetched_pages' => fetched_pages }
+  end
+
   def get_followers(html, threshold, followers_to_process)
     processed_followers = 0
     page       = Nokogiri::HTML(html)
@@ -15,7 +88,6 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
       follower_url       = follower.attribute('href').value
       follower_pins      = follower.text.tr("\n", "").strip.match(/\d*[,]?\d+ Pin/).to_s.strip.split[0].tr(",","")
       follower_followers = follower.text.tr("\n", "").strip.match(/\d*[,]?\d+ Follower/).to_s.strip.split[0].tr(",","")
-      #puts "#{processed_followers} processing: #{follower_url.tr('/','')}"
       if follower_followers.to_i >= threshold.to_i 
         info_and_links = get_info_and_links(follower_url.tr('/',''))
         followers_list << {
@@ -60,7 +132,6 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
         follower_url       = follower.attribute('href').value
         follower_pins      = follower.text.tr("\n", "").strip.match(/\d*[,]?\d+ Pin/).to_s.strip.split[0].tr(",","")
         follower_followers = follower.text.tr("\n", "").strip.match(/\d*[,]?\d+ Follower/).to_s.strip.split[0].tr(",","")
-        #puts "#{processed_followers} processing: #{follower_url.tr('/','')}"
         if follower_followers.to_i >= threshold.to_i 
           info_and_links = get_info_and_links(follower_url.tr('/',''))
           followers_list << {
@@ -159,11 +230,17 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
     location        = page.css("li[class~=userProfileHeaderLocationWrapper]").text.strip
     facebook        = get_facebook(page.css("//a[@class=\"facebook\"]/@href"))
     twitter         = get_twitter(page.css("//a[@class=\"twitter\"]/@href"))
-    return {'email' => email,
+    followers_count = page.css("div[class~=FollowerCount]").text.to_s.strip.split[0].tr(",", "")
+    pins            = page.css("div[class~=PinCount]").text.to_s.split[0].tr(",", "")
+    profile_name    = page.css("h1[class~=userProfileHeaderName]").text.strip
+    return { 'email' => email,
       'website' => website,
       'location' => location,
       'facebook' => facebook,
-      'twitter' => twitter}
+      'twitter' => twitter,
+      'followers_count' => followers_count,
+      'pins' => pins,
+      'profile_name' => profile_name }
   end
 
   def get_latest_pictures_from_board(html)
@@ -208,17 +285,17 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
       #board followers at time of posting
     }
   end
-
+#body > div.App.full.AppBase.Module > div.appContent > div.mainContainer > div.UserProfilePage.Module > div.UserInfoBar.InfoBarBase.gridWidth.Module.centeredWithinWrapper.v1 > ul.userStats > li:nth-child(3) > a > span.value
   def scrape_data_for_profile_page(html)
     page  =  Nokogiri::HTML(html)
     return nil if !page.css("div[class~=errorMessage]").empty?
-    profile_name    = page.css("h1[class~=userProfileHeaderName]").text
-    followers_count = page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/ul[2]/li[1]/a/span/text()").to_s.strip.split[0].tr(",", "")
+    profile_name    = page.css("h1[class~=userProfileHeaderName]").text.to_s.strip
+    followers_count = page.css("div[class~=FollowerCount]").text.to_s.strip.split[0].tr(",", "")
     bio             = page.css("p[class~=userProfileHeaderBio]").text
-    boards          = page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[1]/a/span/text()").to_s.strip.split[0].tr(",", "")
+    boards          = page.css("div[class~=BoardCount]").text.to_s.split[0].tr(",", "")
     pins            = page.css("div[class~=PinCount]").text.to_s.split[0].tr(",", "")
-    likes           = page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[3]/a/text()").to_s.strip.split[0].tr(",", "")
-    followed        = page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/ul[2]/li[2]/a/text()").to_s.strip.split[0].tr(",", "")
+    likes           = page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[3]/a/span[1]/text()").to_s.strip.split[0].tr(",", "")
+    followed        = page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/ul[2]/li[2]/a/span[1]/text()").to_s.strip.split[0].tr(",", "")
     return {"profile_name" => profile_name, "followers_count" => followers_count, "profile_description" => bio,
             "boards_count" => boards, "pins_count" => pins, "likes_count" => likes, "followed" => followed}
   end
