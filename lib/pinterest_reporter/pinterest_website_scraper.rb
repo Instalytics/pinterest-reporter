@@ -230,11 +230,17 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
     location        = page.css("li[class~=userProfileHeaderLocationWrapper]").text.strip
     facebook        = get_facebook(page.css("//a[@class=\"facebook\"]/@href"))
     twitter         = get_twitter(page.css("//a[@class=\"twitter\"]/@href"))
-    return {'email' => email,
+    followers_count = page.css("div[class~=FollowerCount]").text.to_s.strip.split[0].tr(",", "")
+    pins            = page.css("div[class~=PinCount]").text.to_s.split[0].tr(",", "")
+    profile_name    = page.css("h1[class~=userProfileHeaderName]").text.strip
+    return { 'email' => email,
       'website' => website,
       'location' => location,
       'facebook' => facebook,
-      'twitter' => twitter}
+      'twitter' => twitter,
+      'followers_count' => followers_count,
+      'pins' => pins,
+      'profile_name' => profile_name }
   end
 
   def get_latest_pictures_from_board(html)
@@ -279,17 +285,17 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
       #board followers at time of posting
     }
   end
-
+#body > div.App.full.AppBase.Module > div.appContent > div.mainContainer > div.UserProfilePage.Module > div.UserInfoBar.InfoBarBase.gridWidth.Module.centeredWithinWrapper.v1 > ul.userStats > li:nth-child(3) > a > span.value
   def scrape_data_for_profile_page(html)
     page  =  Nokogiri::HTML(html)
     return nil if !page.css("div[class~=errorMessage]").empty?
-    profile_name    = page.css("h1[class~=userProfileHeaderName]").text
-    followers_count = page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/ul[2]/li[1]/a/span/text()").to_s.strip.split[0].tr(",", "")
+    profile_name    = page.css("h1[class~=userProfileHeaderName]").text.to_s.strip
+    followers_count = page.css("div[class~=FollowerCount]").text.to_s.strip.split[0].tr(",", "")
     bio             = page.css("p[class~=userProfileHeaderBio]").text
-    boards          = page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[1]/a/span/text()").to_s.strip.split[0].tr(",", "")
+    boards          = page.css("div[class~=BoardCount]").text.to_s.split[0].tr(",", "")
     pins            = page.css("div[class~=PinCount]").text.to_s.split[0].tr(",", "")
-    likes           = page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[3]/a/text()").to_s.strip.split[0].tr(",", "")
-    followed        = page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/ul[2]/li[2]/a/text()").to_s.strip.split[0].tr(",", "")
+    likes           = page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[3]/a/span[1]/text()").to_s.strip.split[0].tr(",", "")
+    followed        = page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/ul[2]/li[2]/a/span[1]/text()").to_s.strip.split[0].tr(",", "")
     return {"profile_name" => profile_name, "followers_count" => followers_count, "profile_description" => bio,
             "boards_count" => boards, "pins_count" => pins, "likes_count" => likes, "followed" => followed}
   end

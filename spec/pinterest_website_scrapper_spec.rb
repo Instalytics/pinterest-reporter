@@ -57,7 +57,7 @@ describe PinterestWebsiteScraper do
   end
 
   let(:maryannrizzo_web_profile) do
-    VCR.use_cassette('get_profile_page') do
+    VCR.use_cassette('get_profile_page_maryannrizzo') do
       PinterestWebsiteCaller.new.get_profile_page('maryannrizzo')
     end
   end
@@ -71,7 +71,7 @@ describe PinterestWebsiteScraper do
   let(:expected_result_from_profile_page_scraping) do
     {
       "profile_name"        => "Ryan Sammy",
-      "followers_count"     => "887",
+      "followers_count"     => "903",
       "profile_description" => "Food lover, Craft Beer Enthusiast, and BMW fanatic.",
       "boards_count"        => "83",
       "pins_count"          => "1794",
@@ -117,7 +117,7 @@ describe PinterestWebsiteScraper do
     it 'returns list of all boards for profile page' do
       VCR.use_cassette('get_pinterest_boards_list_all_boards') do
         expect(subject.get_pinterest_boards(maryannrizzo_web_profile).size).
-          to eq(238)
+          to eq(272)
       end
     end
 
@@ -179,7 +179,7 @@ describe PinterestWebsiteScraper do
   end
 
   describe "#get followers data" do
-    it "gets followers data meeting given criteria for profile name" do
+    xit "gets followers data meeting given criteria for profile name" do
       expected_result = [
         {
           "profile_name" => "Ognyan Tortorochev",
@@ -213,6 +213,23 @@ describe PinterestWebsiteScraper do
       VCR.use_cassette('get_followers_data_second_page') do
         result = subject.get_followers_for_cache(ryansammy_followers_page, 10000, 200, 2)
         expect(result['followers_list'].size).to eq(13)
+      end
+    end
+
+    it 'should provide all links and infos' do
+      expected_result = {
+        "email" => "",
+        "website" => "www.ryansammy.com",
+        "location" => "Berkeley, CA",
+        "facebook" => "https://www.facebook.com/ryan.sammy",
+        "twitter" => "",
+        "followers_count" => "903",
+        "pins" => "1794",
+        "profile_name" => "Ryan Sammy"
+      }
+      VCR.use_cassette('get_links_and_infos') do
+        result = subject.get_info_and_links('ryansammy')
+        expect(result).to eq(expected_result)
       end
     end
 
