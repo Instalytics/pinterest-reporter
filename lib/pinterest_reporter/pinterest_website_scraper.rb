@@ -14,7 +14,7 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
     if starting_page == 1
       followers = page.css("a[class=userWrapper]")
       followers.each do |follower|
-        follower_url       = follower.attribute('href').value
+        follower_url       = follower.attribute('href').value[1..-2]
         follower_followers = follower.text.tr("\n", "").strip.match(/\d*[,]?\d+ Follower/).to_s.strip.split[0].tr(",","")
         if follower_followers.to_i >= threshold.to_i
           followers_list << follower_url
@@ -56,7 +56,7 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
       if fetched_pages >= starting_page
         followers = page.css("a[class=userWrapper]")
         followers.each do |follower|
-          follower_url       = follower.attribute('href').value
+          follower_url       = follower.attribute('href').value[1..-2]
           follower_followers = follower.text.tr("\n", "").strip.match(/\d*[,]?\d+ Follower/).to_s.strip.split[0].tr(",","")
           if follower_followers.to_i >= threshold.to_i
             followers_list << follower_url
