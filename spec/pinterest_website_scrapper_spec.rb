@@ -203,10 +203,18 @@ describe PinterestWebsiteScraper do
     end
 
     it 'should not process more followers then passed limit' do
-      VCR.use_cassette('get_followers_data_all_followers') do
-        result = subject.get_followers(ryansammy_followers_page, 0, 20)
-        expect(result.size).to eq(15)
+      VCR.use_cassette('get_followers_data_up_to_limit') do
+        result = subject.get_followers(ryansammy_followers_page, 1000, 20)
+        expect(result.size).to eq(8)
       end
     end
+
+    it 'should start processing from second page of followers list' do
+      VCR.use_cassette('get_followers_data_second_page') do
+        result = subject.get_followers_for_cache(ryansammy_followers_page, 10000, 200, 2)
+        expect(result['followers_list'].size).to eq(13)
+      end
+    end
+
   end
 end
