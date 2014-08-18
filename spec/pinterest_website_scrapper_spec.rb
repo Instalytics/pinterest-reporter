@@ -3,7 +3,7 @@ require 'spec_helper'
 describe PinterestWebsiteScraper do
 
   let(:ryansammy_web_profile) do
-    VCR.use_cassette('get_profile_page') do
+    VCR.use_cassette('get_profile_page_ryansammy') do
       PinterestWebsiteCaller.new.get_profile_page('ryansammy')
     end
   end
@@ -20,7 +20,7 @@ describe PinterestWebsiteScraper do
   end
 
   let(:ryansammy_bmw_board) do
-    VCR.use_cassette('get_board_page') do
+    VCR.use_cassette('get_board_page_ryansammy_bmw') do
       PinterestWebsiteCaller.new.get_board_page('ryansammy','bmw')
     end
   end
@@ -53,13 +53,13 @@ describe PinterestWebsiteScraper do
 
 
   let(:ryansammy_non_existent_board) do
-    VCR.use_cassette('get_board_page') do
+    VCR.use_cassette('get_ryansammy_not_existing_board') do
       PinterestWebsiteCaller.new.get_board_page('ryansammy','i_do_not_exist_board')
     end
   end
 
   let(:ryansammy_followers_page) do
-    VCR.use_cassette('get_followers_page') do
+    VCR.use_cassette('get_followers_page_ryansammy') do
       PinterestWebsiteCaller.new.get_followers_page('ryansammy')
     end
   end
@@ -104,13 +104,13 @@ describe PinterestWebsiteScraper do
       "board_name"      => "Men Clothing",
       "description"     => "Welcome to this board and many thanks for all your contributions. Men's clothing only. Constant repins will be deleted. Pins without source links will be deleted.    carlapin50@gmail.com",
       "pins_count"      => "48274",
-      "followers_count" => "24066"
+      "followers_count" => "24065"
     }
   end
 
   describe '#scrape_data_for_profile_page' do
     it 'gets the data from page' do
-      VCR.use_cassette('scrape_data_for_profile_page') do
+      VCR.use_cassette('scrape_data_from_profile_page') do
         expect(subject.scrape_data_for_profile_page(ryansammy_web_profile)).
           to eq(expected_result_from_profile_page_scraping)
       end
@@ -204,14 +204,14 @@ describe PinterestWebsiteScraper do
           }
         }
       ]
-      VCR.use_cassette('get_followers_data') do
+      VCR.use_cassette('get_followers_data_from_page') do
         result = subject.get_followers(ryansammy_followers_page, 100000, 200)
         expect(result).to eq(expected_result)
       end
     end
 
     it 'should not process more followers then passed limit' do
-      VCR.use_cassette('get_followers_data_up_to_limit') do
+      VCR.use_cassette('get_followers_data_up_to_fecth_limit') do
         result = subject.get_followers(ryansammy_followers_page, 1000, 20)
         expect(result.size).to eq(8)
       end
@@ -235,7 +235,7 @@ describe PinterestWebsiteScraper do
         "pins" => "1794",
         "profile_name" => "Ryan Sammy"
       }
-      VCR.use_cassette('get_links_and_infos') do
+      VCR.use_cassette('get_links_and_infos_from_profile_page') do
         result = subject.get_info_and_links('ryansammy')
         expect(result).to eq(expected_result)
       end
