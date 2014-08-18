@@ -27,21 +27,21 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 18 Aug 2014 18:23:16 GMT
+      - Mon, 18 Aug 2014 19:53:18 GMT
       Pinterest-Breed:
       - CORGI
       Pinterest-Generated-By:
-      - ngapp2-17b61b3b
+      - ngapp2-0c94e15e
       Pinterest-Version:
       - 2f53d32
       Server:
       - nginx
       Set-Cookie:
-      - _pinterest_sess=TWc9PSZ4dUZ6WmJmbVpJUytlaHpQNmV4aUI4bmY2YThjL2p1NUQzNzZjYWxXbDk3QytLaUsyWGxoVFVlaFpQMWhqVEpsZUtYTnlMT3Z1U0pQbU9tOU5jeTRvZGNFWjBnUmJWbXVnVklseERFeHBla2dZTmhxaEExQThCVFkwaWpRNlJ1WSY4KzZUUUJBb2J5bU9Rck5WQ09KNVBpSUorc009;
-        Domain=.pinterest.com; expires=Thu, 13-Aug-2015 18:23:16 GMT; httponly; Max-Age=31103999;
+      - _pinterest_sess=TWc9PSYrV0xubUFKdzFlZDhSZWM2YUtFd24zZ3RlWmg1bnR6TDNIT0R1YjJMKzBKQ2tQWmFrQUZRcVhXQ3NSTXErWWZ6YUo2cCttYW1TbnR4RE1ZandEK0pkaVh6M1orZ3RGQ1VISlZCTXFSVld3ck9UdncrMjFOdXUrSVVLcVA4Wk1sVyZpZEhkNGJyQ2VJdE5EL293UlZPcHlwRzVRa1k9;
+        Domain=.pinterest.com; expires=Thu, 13-Aug-2015 19:53:18 GMT; httponly; Max-Age=31103999;
         Path=/
-      - csrftoken=Lqiz3P9at3YDVBeA64VQZY68u22Svh4T; Domain=.pinterest.com; expires=Mon,
-        17-Aug-2015 18:23:16 GMT; Max-Age=31449600; Path=/
+      - csrftoken=TsKQnrnbjurhEeqGVsefvWKPuimEiI1g; Domain=.pinterest.com; expires=Mon,
+        17-Aug-2015 19:53:18 GMT; Max-Age=31449600; Path=/
       Vary:
       - User-Agent, Cookie, Accept-Encoding
       Via:
@@ -51,9 +51,9 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Pinterest-Rid:
-      - '847792879526'
+      - '949738308178'
       X-Varnish:
-      - '227004426'
+      - '566133689'
       X-Xss-Protection:
       - 1; mode=block
       Content-Length:
@@ -70,7 +70,7 @@ http_interactions:
         "com.pinterest", "twitter:app:id:ipad": "429047995", "og:title": "Pinterest",
         "twitter:card": "summary", "twitter:site": "@pinterest", "og:image": "http://passets-ec.pinterest.com/images/about/logos/Pinterest_Favicon.png",
         "twitter:app:id:iphone": "429047995"}, "title": "Pinterest"}, "client_context":
-        {"app_version": "2f53d32"}, "request_identifier": "847792879526", "module":
+        {"app_version": "2f53d32"}, "request_identifier": "949738308178", "module":
         {"html": "\n    \n\n\n\n\n    \n    \n\n        \n\n\n", "tree": {"resource":
         {"name": "ProfileBoardsResource", "options": {"field_set_key": "grid_item",
         "username": "helloyoga", "bookmarks": ["-end-"]}}, "name": "GridItems", "children":
@@ -81,5 +81,5 @@ http_interactions:
         {"show_board_context": true, "show_user_icon": false}, "layout": "fixed_height"},
         "uid": "GridItems-1"}}, "resource_response": {"data": null, "error": null}}'
     http_version: 
-  recorded_at: Mon, 18 Aug 2014 18:23:16 GMT
+  recorded_at: Mon, 18 Aug 2014 19:53:18 GMT
 recorded_with: VCR 2.8.0
