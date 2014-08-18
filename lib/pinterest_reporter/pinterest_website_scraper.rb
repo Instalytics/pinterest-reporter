@@ -225,14 +225,16 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
     html = PinterestWebsiteCaller.new.get_profile_page(profile_name)
     page      = Nokogiri::HTML(html)
     return nil if !page.css("div[class~=errorMessage]").empty?
-    email           = contact_data_email(page.css("p[class~=userProfileHeaderBio]").text)
+    email           = contact_data_email(page.css("p[class~=aboutText]").text)
     website         = page.css("li[class~=websiteWrapper]").text.strip
-    location        = page.css("li[class~=userProfileHeaderLocationWrapper]").text.strip
+    location        = page.css("li[class~=locationWrapper]").text.strip
     facebook        = get_facebook(page.css("//a[@class=\"facebook\"]/@href"))
     twitter         = get_twitter(page.css("//a[@class=\"twitter\"]/@href"))
     followers_count = page.css("div[class~=FollowerCount]").text.to_s.strip.split[0].tr(",", "")
-    pins            = page.css("div[class~=PinCount]").text.to_s.split[0].tr(",", "")
-    profile_name    = page.css("h1[class~=userProfileHeaderName]").text.strip
+    pins            = page.css("a[href~=\"/#{profile_name}/pins/\"]").text.to_s.split[0].tr(",", "")
+    profile_name    = page.css("div[class~=titleBar]").css("div[class~=name]").text.to_s.strip
+    #puts "bio: #{page.css("p[class~=aboutText]").text}"
+    #puts "location: #{page.css("li[class~=locationWrapper]").text}"
     return { 'email' => email,
       'website' => website,
       'location' => location,
@@ -289,13 +291,13 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
   def scrape_data_for_profile_page(html)
     page  =  Nokogiri::HTML(html)
     return nil if !page.css("div[class~=errorMessage]").empty?
-    profile_name    = page.css("h1[class~=userProfileHeaderName]").text.to_s.strip
+    profile_name    = page.css("div[class~=titleBar]").css("div[class~=name]").text.to_s.strip
     followers_count = page.css("div[class~=FollowerCount]").text.to_s.strip.split[0].tr(",", "")
-    bio             = page.css("p[class~=userProfileHeaderBio]").text
+    bio             = page.css("p[class~=aboutText]").text.to_s.strip
     boards          = page.css("div[class~=BoardCount]").text.to_s.split[0].tr(",", "")
-    pins            = page.css("div[class~=PinCount]").text.to_s.split[0].tr(",", "")
-    likes           = page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[3]/a/span[1]/text()").to_s.strip.split[0].tr(",", "")
-    followed        = page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/ul[2]/li[2]/a/span[1]/text()").to_s.strip.split[0].tr(",", "")
+    pins            = page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/div/ul/li[2]/a/span[1]/text()").to_s.split[0].tr(",", "")
+    likes           = page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/div/ul/li[3]/a/span[1]/text()").to_s.strip.split[0].tr(",", "")
+    followed        = page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/div/ul/li[5]/a/span[1]/text()").to_s.strip.split[0].tr(",", "")
     return {"profile_name" => profile_name, "followers_count" => followers_count, "profile_description" => bio,
             "boards_count" => boards, "pins_count" => pins, "likes_count" => likes, "followed" => followed}
   end

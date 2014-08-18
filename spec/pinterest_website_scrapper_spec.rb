@@ -43,6 +43,14 @@ describe PinterestWebsiteScraper do
     end
   end
 
+  #/followben/man-stuff1/
+
+  let(:followben_board) do
+    VCR.use_cassette('get_followben_board') do
+      PinterestWebsiteCaller.new.get_board_page_from_url("followben/man-stuff1/")
+    end
+  end
+
 
   let(:ryansammy_non_existent_board) do
     VCR.use_cassette('get_board_page') do
@@ -71,12 +79,12 @@ describe PinterestWebsiteScraper do
   let(:expected_result_from_profile_page_scraping) do
     {
       "profile_name"        => "Ryan Sammy",
-      "followers_count"     => "903",
+      "followers_count"     => "904",
       "profile_description" => "Food lover, Craft Beer Enthusiast, and BMW fanatic.",
       "boards_count"        => "83",
       "pins_count"          => "1794",
       "likes_count"         => "278",
-      "followed"            => "526"
+      "followed"            => "527"
     }
   end
 
@@ -86,7 +94,7 @@ describe PinterestWebsiteScraper do
       "board_name"      => "BMW",
       "description"     => "The cars I dream about.",
       "pins_count"      => "241",
-      "followers_count" => "509"
+      "followers_count" => "513"
     }
   end
 
@@ -95,8 +103,8 @@ describe PinterestWebsiteScraper do
       "owner_name"      => "",
       "board_name"      => "Men Clothing",
       "description"     => "Welcome to this board and many thanks for all your contributions. Men's clothing only. Constant repins will be deleted. Pins without source links will be deleted.    carlapin50@gmail.com",
-      "pins_count"      => "46976",
-      "followers_count" => "23230"
+      "pins_count"      => "48274",
+      "followers_count" => "24066"
     }
   end
 
@@ -117,14 +125,14 @@ describe PinterestWebsiteScraper do
     it 'returns list of all boards for profile page' do
       VCR.use_cassette('get_pinterest_boards_list_all_boards') do
         expect(subject.get_pinterest_boards(maryannrizzo_web_profile).size).
-          to eq(272)
+          to eq(273)
       end
     end
 
     it 'returns list of all boards for profile page for helloyoga' do
       VCR.use_cassette('get_pinterest_boards_list_all_boards_helloyoga') do
         expect(subject.get_pinterest_boards(helloyoga_web_profile).size).
-          to eq(2)
+          to eq(0)
       end
     end
 
@@ -140,8 +148,8 @@ describe PinterestWebsiteScraper do
 
   describe '#get media files from board' do
     it 'fetches media files from pinterest board' do
-      VCR.use_cassette('get_media_files') do
-        result = subject.get_latest_pictures_from_board(kidsworld_board)
+      VCR.use_cassette('get_media_files_followeb') do
+        result = subject.get_latest_pictures_from_board(followben_board)
         #puts "#{result.inspect}"
         expect(result).not_to be(nil)
       end
@@ -212,7 +220,7 @@ describe PinterestWebsiteScraper do
     it 'should start processing from second page of followers list' do
       VCR.use_cassette('get_followers_data_second_page') do
         result = subject.get_followers_for_cache(ryansammy_followers_page, 10000, 200, 2)
-        expect(result['followers_list'].size).to eq(13)
+        expect(result['followers_list'].size).to eq(14)
       end
     end
 
@@ -223,7 +231,7 @@ describe PinterestWebsiteScraper do
         "location" => "Berkeley, CA",
         "facebook" => "https://www.facebook.com/ryan.sammy",
         "twitter" => "",
-        "followers_count" => "903",
+        "followers_count" => "904",
         "pins" => "1794",
         "profile_name" => "Ryan Sammy"
       }

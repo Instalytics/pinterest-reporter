@@ -9,6 +9,7 @@ require 'capybara'
 require 'capybara/dsl'
 require 'nokogiri'
 require 'oj'
+require 'excon'
 
 # MAIN FILES
 require 'pinterest_reporter/pinterest_interactions_base'

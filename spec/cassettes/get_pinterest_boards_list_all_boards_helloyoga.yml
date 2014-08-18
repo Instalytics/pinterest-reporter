@@ -2,163 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://www.pinterest.com/resource/ProfileBoardsResource/get?-=139094526248&data=%7B%22options%22:%7B%22field_set_key%22:%22grid_item%22,%22username%22:%22helloyoga%22,%22bookmarks%22:%5B%22-end-%22%5D%7D,%22context%22:%7B%22app_version%22:%22d19ff27%22,%22https_exp%22:false%7D,%22module%22:%7B%22name%22:%22GridItems%22,%22options%22:%7B%22scrollable%22:true,%22show_grid_footer%22:false,%22centered%22:true,%22reflow_all%22:true,%22virtualize%22:true,%22item_options%22:%7B%22show_board_context%22:true,%22show_user_icon%22:false%7D,%22layout%22:%22fixed_height%22%7D%7D,%22append%22:true,%22error_strategy%22:1%7D&source_url=/helloyoga/
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.8.9
-      X-Requested-With:
-      - XMLHttpRequest
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Accept-Ranges:
-      - bytes
-      Age:
-      - '0'
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Mon, 28 Apr 2014 10:26:52 GMT
-      Pinterest-Breed:
-      - CORGI
-      Pinterest-Generated-By:
-      - ngapp2-866b60a8
-      Pinterest-Version:
-      - d19ff27
-      Server:
-      - nginx
-      Set-Cookie:
-      - _pinterest_sess="eJzLTXSNyjUM9jIrTLNIqzD3TCl3TQ5zLw4rzzKxtY8vycxNtfUN8TX1d4k08XVJr/BNt7VVK04tLs5MsfXMSq+MNPIEyjllRlY55UaGBOX6ZTma+OX6mvi6R+X6VTkaRIaHZfuGpBt6AvUBAJRDI3k=";
-        Domain=.pinterest.com; expires=Thu, 23-Apr-2015 10:26:52 GMT; Max-Age=31103999;
-        Path=/; HttpOnly
-      - csrftoken=ZfEVvpQnbl16jHxJ8sy9423NLs3bzoH8; Domain=.pinterest.com; expires=Mon,
-        27-Apr-2015 10:26:52 GMT; Max-Age=31449600; Path=/
-      Vary:
-      - User-Agent, Cookie, Accept-Encoding
-      Via:
-      - 1.1 varnish
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Pinterest-Rid:
-      - '140292387377'
-      X-Varnish:
-      - '1599441358'
-      Content-Length:
-      - '685'
-      Connection:
-      - keep-alive
-    body:
-      encoding: UTF-8
-      string: '{"page_info": {"breadcrumbs": [], "meta": {"og:url": "http://www.pinterest.com",
-        "description": "Pinterest is a visual discovery tool that you can use to find
-        ideas for all your projects and interests.", "pinterest": "nohover", "og:type":
-        "website", "og:description": "Pinterest is a visual discovery tool that you
-        can use to find ideas for all your projects and interests.", "twitter:app:android":
-        "com.pinterest", "twitter:app:id:ipad": "429047995", "og:title": "Pinterest",
-        "twitter:card": "app", "twitter:site": "@pinterest", "og:image": "http://passets-ec.pinterest.com/images/about/logos/Pinterest_Favicon.png",
-        "twitter:app:id:iphone": "429047995"}, "title": "Pinterest"}, "client_context":
-        {"app_version": "d19ff27", "https_exp": true}, "request_identifier": "140292387377",
-        "module": {"html": "\n\n\n\n    \n    \n\n        \n\n", "tree": {"resource":
-        {"name": "ProfileBoardsResource", "options": {"field_set_key": "grid_item",
-        "username": "helloyoga", "bookmarks": ["-end-"]}}, "name": "GridItems", "children":
-        [], "deps": ["GridItems"], "errorStrategy": 1, "attributes": {"class": "padItems
-        Module centeredWithinWrapper fixedHeightLayout ajax GridItems", "id": "GridItems-1"},
-        "options": {"scrollable": true, "show_grid_footer": false, "centered": true,
-        "reflow_all": true, "virtualize": true, "item_options": {"show_board_context":
-        true, "show_user_icon": false}, "layout": "fixed_height"}, "uid": "GridItems-1"}},
-        "resource_response": {"data": null, "error": null}}'
-    http_version: 
-  recorded_at: Mon, 28 Apr 2014 10:26:52 GMT
-- request:
-    method: get
-    uri: http://www.pinterest.com/resource/ProfileBoardsResource/get?-=139094526248&data=%7B%22options%22:%7B%22field_set_key%22:%22grid_item%22,%22username%22:%22helloyoga%22,%22bookmarks%22:%5B%22-end-%22%5D%7D,%22context%22:%7B%22app_version%22:%22d19ff27%22,%22https_exp%22:false%7D,%22module%22:%7B%22name%22:%22GridItems%22,%22options%22:%7B%22scrollable%22:true,%22show_grid_footer%22:false,%22centered%22:true,%22reflow_all%22:true,%22virtualize%22:true,%22item_options%22:%7B%22show_board_context%22:true,%22show_user_icon%22:false%7D,%22layout%22:%22fixed_height%22%7D%7D,%22append%22:true,%22error_strategy%22:1%7D&source_url=/helloyoga/
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.8.9
-      X-Requested-With:
-      - XMLHttpRequest
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Accept-Ranges:
-      - bytes
-      Age:
-      - '0'
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Mon, 28 Apr 2014 10:27:46 GMT
-      Pinterest-Breed:
-      - CORGI
-      Pinterest-Generated-By:
-      - ngapp2-9bf0ffb5
-      Pinterest-Version:
-      - d19ff27
-      Server:
-      - nginx
-      Set-Cookie:
-      - _pinterest_sess="eJzLiipxSrdM9k8uczFw8/IvLTYzcg5xrDQoLsq2tY8vycxNtfUN8TX1d4k08XVJN/JLt7VVK04tLs5MsfXMcjSIzPI18HcJrAJiU/+QwHL/EKcMX/eo3MjcwEpfo7Asv6rkct8svyxPoD4Aa98jYw==";
-        Domain=.pinterest.com; expires=Thu, 23-Apr-2015 10:27:46 GMT; Max-Age=31103999;
-        Path=/; HttpOnly
-      - csrftoken=FzJvC0wUcMWoNls8183IU70vn6jL7eUS; Domain=.pinterest.com; expires=Mon,
-        27-Apr-2015 10:27:46 GMT; Max-Age=31449600; Path=/
-      Vary:
-      - User-Agent, Cookie, Accept-Encoding
-      Via:
-      - 1.1 varnish
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Pinterest-Rid:
-      - '525720625148'
-      X-Varnish:
-      - '3163712173'
-      Content-Length:
-      - '686'
-      Connection:
-      - keep-alive
-    body:
-      encoding: UTF-8
-      string: '{"page_info": {"breadcrumbs": [], "meta": {"og:url": "http://www.pinterest.com",
-        "description": "Pinterest is a visual discovery tool that you can use to find
-        ideas for all your projects and interests.", "pinterest": "nohover", "og:type":
-        "website", "og:description": "Pinterest is a visual discovery tool that you
-        can use to find ideas for all your projects and interests.", "twitter:app:android":
-        "com.pinterest", "twitter:app:id:ipad": "429047995", "og:title": "Pinterest",
-        "twitter:card": "app", "twitter:site": "@pinterest", "og:image": "http://passets-ec.pinterest.com/images/about/logos/Pinterest_Favicon.png",
-        "twitter:app:id:iphone": "429047995"}, "title": "Pinterest"}, "client_context":
-        {"app_version": "d19ff27", "https_exp": true}, "request_identifier": "525720625148",
-        "module": {"html": "\n\n\n\n    \n    \n\n        \n\n", "tree": {"resource":
-        {"name": "ProfileBoardsResource", "options": {"field_set_key": "grid_item",
-        "username": "helloyoga", "bookmarks": ["-end-"]}}, "name": "GridItems", "children":
-        [], "deps": ["GridItems"], "errorStrategy": 1, "attributes": {"class": "padItems
-        Module centeredWithinWrapper fixedHeightLayout ajax GridItems", "id": "GridItems-1"},
-        "options": {"scrollable": true, "show_grid_footer": false, "centered": true,
-        "reflow_all": true, "virtualize": true, "item_options": {"show_board_context":
-        true, "show_user_icon": false}, "layout": "fixed_height"}, "uid": "GridItems-1"}},
-        "resource_response": {"data": null, "error": null}}'
-    http_version: 
-  recorded_at: Mon, 28 Apr 2014 10:27:45 GMT
-- request:
-    method: get
-    uri: http://www.pinterest.com/resource/ProfileBoardsResource/get/?-=139094526248&data=%7B%22options%22:%7B%22field_set_key%22:%22grid_item%22,%22username%22:%22helloyoga%22,%22bookmarks%22:%5B%22-end-%22%5D%7D,%22context%22:%7B%22app_version%22:%22d19ff27%22,%22https_exp%22:false%7D,%22module%22:%7B%22name%22:%22GridItems%22,%22options%22:%7B%22scrollable%22:true,%22show_grid_footer%22:false,%22centered%22:true,%22reflow_all%22:true,%22virtualize%22:true,%22item_options%22:%7B%22show_board_context%22:true,%22show_user_icon%22:false%7D,%22layout%22:%22fixed_height%22%7D%7D,%22append%22:true,%22error_strategy%22:1%7D&source_url=/helloyoga/
+    uri: http://www.pinterest.com/resource/ProfileBoardsResource/get/?-=139094526248&data=%7B%22options%22:%7B%22field_set_key%22:%22grid_item%22,%22username%22:%22helloyoga%22,%22bookmarks%22:%5B%22-end-%22%5D%7D,%22context%22:%7B%22app_version%22:%222f53d32%22,%22https_exp%22:false%7D,%22module%22:%7B%22name%22:%22GridItems%22,%22options%22:%7B%22scrollable%22:true,%22show_grid_footer%22:false,%22centered%22:true,%22reflow_all%22:true,%22virtualize%22:true,%22item_options%22:%7B%22show_board_context%22:true,%22show_user_icon%22:false%7D,%22layout%22:%22fixed_height%22%7D%7D,%22append%22:true,%22error_strategy%22:1%7D&source_url=/helloyoga/
     body:
       encoding: US-ASCII
       string: ''
@@ -183,33 +27,37 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 12 Jun 2014 13:39:20 GMT
+      - Mon, 18 Aug 2014 18:23:16 GMT
       Pinterest-Breed:
       - CORGI
       Pinterest-Generated-By:
-      - ngapp2-04a66127
+      - ngapp2-17b61b3b
       Pinterest-Version:
-      - 8342ae3
+      - 2f53d32
       Server:
       - nginx
       Set-Cookie:
-      - _pinterest_sess="eJzLMg3O90px94r0L8z1jvLyNjOydC80048oSLSwtY8vycxNtfUNCSz3zQo18XXxNfJ1tLVVK04tLs5MsfXMSq6MCnHL8g2PNIly8TWOygo0jgrJyPAP963yc4ksB5JZUeGRhlG5oeWe6ba2AFTuIz4=";
-        Domain=.pinterest.com; expires=Sun, 07-Jun-2015 13:39:20 GMT; Max-Age=31103999;
-        Path=/; HttpOnly
-      - csrftoken=bAZTx46xwTy0F5BgMCd9pPj7BI6ZJfmw; Domain=.pinterest.com; expires=Thu,
-        11-Jun-2015 13:39:20 GMT; Max-Age=31449600; Path=/
+      - _pinterest_sess=TWc9PSZ4dUZ6WmJmbVpJUytlaHpQNmV4aUI4bmY2YThjL2p1NUQzNzZjYWxXbDk3QytLaUsyWGxoVFVlaFpQMWhqVEpsZUtYTnlMT3Z1U0pQbU9tOU5jeTRvZGNFWjBnUmJWbXVnVklseERFeHBla2dZTmhxaEExQThCVFkwaWpRNlJ1WSY4KzZUUUJBb2J5bU9Rck5WQ09KNVBpSUorc009;
+        Domain=.pinterest.com; expires=Thu, 13-Aug-2015 18:23:16 GMT; httponly; Max-Age=31103999;
+        Path=/
+      - csrftoken=Lqiz3P9at3YDVBeA64VQZY68u22Svh4T; Domain=.pinterest.com; expires=Mon,
+        17-Aug-2015 18:23:16 GMT; Max-Age=31449600; Path=/
       Vary:
       - User-Agent, Cookie, Accept-Encoding
       Via:
       - 1.1 varnish
+      X-Content-Type-Options:
+      - nosniff
       X-Frame-Options:
       - SAMEORIGIN
       X-Pinterest-Rid:
-      - '881457598095'
+      - '847792879526'
       X-Varnish:
-      - '1472088161'
+      - '227004426'
+      X-Xss-Protection:
+      - 1; mode=block
       Content-Length:
-      - '681'
+      - '689'
       Connection:
       - keep-alive
     body:
@@ -220,10 +68,10 @@ http_interactions:
         "website", "og:description": "Pinterest is a visual discovery tool that you
         can use to find ideas for all your projects and interests.", "twitter:app:android":
         "com.pinterest", "twitter:app:id:ipad": "429047995", "og:title": "Pinterest",
-        "twitter:card": "app", "twitter:site": "@pinterest", "og:image": "http://passets-ec.pinterest.com/images/about/logos/Pinterest_Favicon.png",
+        "twitter:card": "summary", "twitter:site": "@pinterest", "og:image": "http://passets-ec.pinterest.com/images/about/logos/Pinterest_Favicon.png",
         "twitter:app:id:iphone": "429047995"}, "title": "Pinterest"}, "client_context":
-        {"app_version": "8342ae3"}, "request_identifier": "881457598095", "module":
-        {"html": "    \n\n\n\n\n    \n    \n\n        \n\n\n", "tree": {"resource":
+        {"app_version": "2f53d32"}, "request_identifier": "847792879526", "module":
+        {"html": "\n    \n\n\n\n\n    \n    \n\n        \n\n\n", "tree": {"resource":
         {"name": "ProfileBoardsResource", "options": {"field_set_key": "grid_item",
         "username": "helloyoga", "bookmarks": ["-end-"]}}, "name": "GridItems", "children":
         [], "deps": ["GridItems"], "errorStrategy": 1, "attributes": {"class": "loadingItems
@@ -233,5 +81,5 @@ http_interactions:
         {"show_board_context": true, "show_user_icon": false}, "layout": "fixed_height"},
         "uid": "GridItems-1"}}, "resource_response": {"data": null, "error": null}}'
     http_version: 
-  recorded_at: Thu, 12 Jun 2014 13:39:20 GMT
+  recorded_at: Mon, 18 Aug 2014 18:23:16 GMT
 recorded_with: VCR 2.8.0
