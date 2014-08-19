@@ -292,6 +292,7 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
     profile_name    = page.css("div[class~=titleBar]").css("div[class~=name]").text.to_s.strip
     followers_count = page.css("div[class~=FollowerCount]").text.to_s.strip.split[0].tr(",", "")
     info_bar = page.css("div[class~=UserInfoBar]").css("div[class~=tabs]").text.to_s.strip.tr("\n"," ")
+    puts "info_bar: #{info_bar}"
     pins = info_bar.match(/\d?,?\d+ Pins/).to_s.split[0].tr(",","")
     likes = info_bar.match(/\d?,?\d+ Likes/).to_s.split[0].tr(",","")
     followed = info_bar.match(/\d?,?\d+ Following/).to_s.split[0].tr(",","")
