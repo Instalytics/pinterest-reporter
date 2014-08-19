@@ -103,8 +103,8 @@ describe PinterestWebsiteScraper do
       "owner_name"      => "",
       "board_name"      => "Men Clothing",
       "description"     => "Welcome to this board and many thanks for all your contributions. Men's clothing only. Constant repins will be deleted. Pins without source links will be deleted.    carlapin50@gmail.com",
-      "pins_count"      => "48274",
-      "followers_count" => "24065"
+      "pins_count"      => "48299",
+      "followers_count" => "24086"
     }
   end
 
@@ -193,7 +193,7 @@ describe PinterestWebsiteScraper do
           "profile_name" => "Ognyan Tortorochev",
           "url" => "/tortorochev/",
           "pins" => "54707",
-          "followers" => "188597",
+          "followers" => "188590",
           "info_and_links"=>
           {
             "email" => "art_ok@live.com",

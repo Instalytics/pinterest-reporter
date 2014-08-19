@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://www.pinterest.com/resource/ProfileBoardsResource/get/?-=139094526248&data=%7B%22options%22:%7B%22field_set_key%22:%22grid_item%22,%22username%22:%22helloyoga%22,%22bookmarks%22:%5B%22-end-%22%5D%7D,%22context%22:%7B%22app_version%22:%222f53d32%22,%22https_exp%22:false%7D,%22module%22:%7B%22name%22:%22GridItems%22,%22options%22:%7B%22scrollable%22:true,%22show_grid_footer%22:false,%22centered%22:true,%22reflow_all%22:true,%22virtualize%22:true,%22item_options%22:%7B%22show_board_context%22:true,%22show_user_icon%22:false%7D,%22layout%22:%22fixed_height%22%7D%7D,%22append%22:true,%22error_strategy%22:1%7D&source_url=/helloyoga/
+    uri: http://www.pinterest.com/resource/ProfileBoardsResource/get/?-=139094526248&data=%7B%22options%22:%7B%22field_set_key%22:%22grid_item%22,%22username%22:%22helloyoga%22,%22bookmarks%22:%5B%22-end-%22%5D%7D,%22context%22:%7B%22app_version%22:%228e59a92%22,%22https_exp%22:false%7D,%22module%22:%7B%22name%22:%22GridItems%22,%22options%22:%7B%22scrollable%22:true,%22show_grid_footer%22:false,%22centered%22:true,%22reflow_all%22:true,%22virtualize%22:true,%22item_options%22:%7B%22show_board_context%22:true,%22show_user_icon%22:false%7D,%22layout%22:%22fixed_height%22%7D%7D,%22append%22:true,%22error_strategy%22:1%7D&source_url=/helloyoga/
     body:
       encoding: US-ASCII
       string: ''
@@ -27,21 +27,21 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 18 Aug 2014 19:53:18 GMT
+      - Tue, 19 Aug 2014 14:21:32 GMT
       Pinterest-Breed:
       - CORGI
       Pinterest-Generated-By:
-      - ngapp2-0c94e15e
+      - ngapp2-861455d5
       Pinterest-Version:
-      - 2f53d32
+      - 8e59a92
       Server:
       - nginx
       Set-Cookie:
-      - _pinterest_sess=TWc9PSYrV0xubUFKdzFlZDhSZWM2YUtFd24zZ3RlWmg1bnR6TDNIT0R1YjJMKzBKQ2tQWmFrQUZRcVhXQ3NSTXErWWZ6YUo2cCttYW1TbnR4RE1ZandEK0pkaVh6M1orZ3RGQ1VISlZCTXFSVld3ck9UdncrMjFOdXUrSVVLcVA4Wk1sVyZpZEhkNGJyQ2VJdE5EL293UlZPcHlwRzVRa1k9;
-        Domain=.pinterest.com; expires=Thu, 13-Aug-2015 19:53:18 GMT; httponly; Max-Age=31103999;
+      - _pinterest_sess=TWc9PSZCVzJ0Q0NoZzM4SnFMS2dHakFFdnZaamVWMTVZQU1lRjlTeUZPMFFwb3NPYVRCaUhFWTJPMWtqS0RTTmdqZTk3akVwblpZbGJzcmtucjhjbTJVK3FOWW03S3hjazdha2xidUJvL1ZrMjU2bkNQczNOVnVjU1pJblRjNVk2ZFkwbCZyeCtkMSt3ZmtFUzkvYU5wV2R5RTNib2ZyV009;
+        Domain=.pinterest.com; expires=Fri, 14-Aug-2015 14:21:32 GMT; httponly; Max-Age=31103999;
         Path=/
-      - csrftoken=TsKQnrnbjurhEeqGVsefvWKPuimEiI1g; Domain=.pinterest.com; expires=Mon,
-        17-Aug-2015 19:53:18 GMT; Max-Age=31449600; Path=/
+      - csrftoken=GMQsVGuouVooR9xZdw4kCtB6NDqGhK9U; Domain=.pinterest.com; expires=Tue,
+        18-Aug-2015 14:21:32 GMT; Max-Age=31449600; Path=/
       Vary:
       - User-Agent, Cookie, Accept-Encoding
       Via:
@@ -51,13 +51,13 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Pinterest-Rid:
-      - '949738308178'
+      - '842242762407'
       X-Varnish:
-      - '566133689'
+      - '638489291'
       X-Xss-Protection:
       - 1; mode=block
       Content-Length:
-      - '689'
+      - '687'
       Connection:
       - keep-alive
     body:
@@ -70,7 +70,7 @@ http_interactions:
         "com.pinterest", "twitter:app:id:ipad": "429047995", "og:title": "Pinterest",
         "twitter:card": "summary", "twitter:site": "@pinterest", "og:image": "http://passets-ec.pinterest.com/images/about/logos/Pinterest_Favicon.png",
         "twitter:app:id:iphone": "429047995"}, "title": "Pinterest"}, "client_context":
-        {"app_version": "2f53d32"}, "request_identifier": "949738308178", "module":
+        {"app_version": "8e59a92"}, "request_identifier": "842242762407", "module":
         {"html": "\n    \n\n\n\n\n    \n    \n\n        \n\n\n", "tree": {"resource":
         {"name": "ProfileBoardsResource", "options": {"field_set_key": "grid_item",
         "username": "helloyoga", "bookmarks": ["-end-"]}}, "name": "GridItems", "children":
@@ -81,5 +81,5 @@ http_interactions:
         {"show_board_context": true, "show_user_icon": false}, "layout": "fixed_height"},
         "uid": "GridItems-1"}}, "resource_response": {"data": null, "error": null}}'
     http_version: 
-  recorded_at: Mon, 18 Aug 2014 19:53:18 GMT
+  recorded_at: Tue, 19 Aug 2014 14:21:32 GMT
 recorded_with: VCR 2.8.0

@@ -233,8 +233,6 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
     followers_count = page.css("div[class~=FollowerCount]").text.to_s.strip.split[0].tr(",", "")
     pins            = page.css("a[href~=\"/#{profile_name}/pins/\"]").text.to_s.split[0].tr(",", "")
     profile_name    = page.css("div[class~=titleBar]").css("div[class~=name]").text.to_s.strip
-    #puts "bio: #{page.css("p[class~=aboutText]").text}"
-    #puts "location: #{page.css("li[class~=locationWrapper]").text}"
     return { 'email' => email,
       'website' => website,
       'location' => location,

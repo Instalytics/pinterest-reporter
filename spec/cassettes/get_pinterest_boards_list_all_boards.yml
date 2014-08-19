@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://www.pinterest.com/resource/ProfileBoardsResource/get/?-=139094526248&data=%7B%22options%22:%7B%22field_set_key%22:%22grid_item%22,%22username%22:%22maryannrizzo%22,%22bookmarks%22:%5B%22LT4xNzc5NjI2OTE0NjQyNjkwMjE6NTB8YTliNWQ0ODFmYWEzNjU4OTNmMGEwZThiNjQwNDU1YWNmNjQxZDYyOGM1ZDE2ZTdlZmVlODM5MzdlY2QwZGY3MA==%22%5D%7D,%22context%22:%7B%22app_version%22:%222f53d32%22,%22https_exp%22:false%7D,%22module%22:%7B%22name%22:%22GridItems%22,%22options%22:%7B%22scrollable%22:true,%22show_grid_footer%22:false,%22centered%22:true,%22reflow_all%22:true,%22virtualize%22:true,%22item_options%22:%7B%22show_board_context%22:true,%22show_user_icon%22:false%7D,%22layout%22:%22fixed_height%22%7D%7D,%22append%22:true,%22error_strategy%22:1%7D&source_url=/maryannrizzo/
+    uri: http://www.pinterest.com/resource/ProfileBoardsResource/get/?-=139094526248&data=%7B%22options%22:%7B%22field_set_key%22:%22grid_item%22,%22username%22:%22maryannrizzo%22,%22bookmarks%22:%5B%22LT4xNzc5NjI2OTE0NjQyNjkwMjE6NTB8YTliNWQ0ODFmYWEzNjU4OTNmMGEwZThiNjQwNDU1YWNmNjQxZDYyOGM1ZDE2ZTdlZmVlODM5MzdlY2QwZGY3MA==%22%5D%7D,%22context%22:%7B%22app_version%22:%228e59a92%22,%22https_exp%22:false%7D,%22module%22:%7B%22name%22:%22GridItems%22,%22options%22:%7B%22scrollable%22:true,%22show_grid_footer%22:false,%22centered%22:true,%22reflow_all%22:true,%22virtualize%22:true,%22item_options%22:%7B%22show_board_context%22:true,%22show_user_icon%22:false%7D,%22layout%22:%22fixed_height%22%7D%7D,%22append%22:true,%22error_strategy%22:1%7D&source_url=/maryannrizzo/
     body:
       encoding: US-ASCII
       string: ''
@@ -27,21 +27,21 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 18 Aug 2014 19:53:04 GMT
+      - Tue, 19 Aug 2014 14:21:16 GMT
       Pinterest-Breed:
       - CORGI
       Pinterest-Generated-By:
-      - ngapp2-26b4f20c
+      - ngapp2-1a1a5b49
       Pinterest-Version:
-      - 2f53d32
+      - 8e59a92
       Server:
       - nginx
       Set-Cookie:
-      - _pinterest_sess=TWc9PSZ1bzBmSnlDWFBKRUtPUU9ObXVNcjkwRlJHN1NJNTRXc3VYcjJFMm5mcnZvUVg0SWVDbEtLLzFJSUFia3RqblhFc1BtTUZGbGh2L2dXVWRMcFBEZThLSzlqNmg4UnhPR1ZxR3kvQ2JoNXNaVGdqWVlJUnRIMjgwdmY5enVsckt0VSZpcmdTejlYOTdwMnFqQnBxTDlXSE15SkdkWVk9;
-        Domain=.pinterest.com; expires=Thu, 13-Aug-2015 19:53:04 GMT; httponly; Max-Age=31103999;
+      - _pinterest_sess=TWc9PSZCVGl2ZmhDUzJGV0RVZXBJUUtCUmNqTy9VVFEvOGtFU3FGV0FaTnhoOSs4N0RkUXh6WFpxNHkzR1M5aWtnZFdSK3ZmV2NidGxLNUp0R2JpdFdWanBTdVRmS1hQUzdyci9KUHlDekw3RG9sd25GOUFXUDF2NDVreTIxRmF0dkpRciZkRHJ5N0hTSGxkbVV0N3o5MWRmTVhiR1BDalE9;
+        Domain=.pinterest.com; expires=Fri, 14-Aug-2015 14:21:16 GMT; httponly; Max-Age=31103999;
         Path=/
-      - csrftoken=rkTk9WncDK46C0VME5VdzZansiAo6Q3Z; Domain=.pinterest.com; expires=Mon,
-        17-Aug-2015 19:53:04 GMT; Max-Age=31449600; Path=/
+      - csrftoken=EklZeSVdMJ1J31ai2LO7lslKrMUP5X6K; Domain=.pinterest.com; expires=Tue,
+        18-Aug-2015 14:21:16 GMT; Max-Age=31449600; Path=/
       Vary:
       - User-Agent, Cookie, Accept-Encoding
       Via:
@@ -51,9 +51,9 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Pinterest-Rid:
-      - '380250968007'
+      - '537197720020'
       X-Varnish:
-      - '945679397'
+      - '1312717335'
       X-Xss-Protection:
       - 1; mode=block
       Content-Length:
@@ -70,7 +70,7 @@ http_interactions:
         "com.pinterest", "twitter:app:id:ipad": "429047995", "og:title": "Pinterest",
         "twitter:card": "summary", "twitter:site": "@pinterest", "og:image": "http://passets-ec.pinterest.com/images/about/logos/Pinterest_Favicon.png",
         "twitter:app:id:iphone": "429047995"}, "title": "Pinterest"}, "client_context":
-        {"app_version": "2f53d32"}, "request_identifier": "380250968007", "module":
+        {"app_version": "8e59a92"}, "request_identifier": "537197720020", "module":
         {"html": "\n    \n\n\n\n\n    \n    \n\n        \n\n        \n                    <div
         class=\"item \"\n            >\n\n                        \n                                                                                            <div
         data-component-type=\"1\" class=\"noTouch Module BoardBase ajax Board boardCoverImage\"
@@ -4666,10 +4666,10 @@ http_interactions:
         "layout": "fixed_height"}, "uid": "GridItems-251"}}, "resource_response":
         {"data": null, "error": null}}'
     http_version: 
-  recorded_at: Mon, 18 Aug 2014 19:53:04 GMT
+  recorded_at: Tue, 19 Aug 2014 14:21:17 GMT
 - request:
     method: get
-    uri: http://www.pinterest.com/resource/ProfileBoardsResource/get/?-=139094526248&data=%7B%22options%22:%7B%22field_set_key%22:%22grid_item%22,%22username%22:%22maryannrizzo%22,%22bookmarks%22:%5B%22LT4xNzc5NjI2OTE0NjQyNjY3NDc6OTl8NzMxYzlkZDU0MTE1YjI0NDlhMzlhZDFiNTFlYjRiMzM1YTg2YmY3Y2ZmZjliZWI2NjM1YWNmM2MzODY4ZDM1Ng==%22%5D%7D,%22context%22:%7B%22app_version%22:%222f53d32%22,%22https_exp%22:false%7D,%22module%22:%7B%22name%22:%22GridItems%22,%22options%22:%7B%22scrollable%22:true,%22show_grid_footer%22:false,%22centered%22:true,%22reflow_all%22:true,%22virtualize%22:true,%22item_options%22:%7B%22show_board_context%22:true,%22show_user_icon%22:false%7D,%22layout%22:%22fixed_height%22%7D%7D,%22append%22:true,%22error_strategy%22:1%7D&source_url=/maryannrizzo/
+    uri: http://www.pinterest.com/resource/ProfileBoardsResource/get/?-=139094526248&data=%7B%22options%22:%7B%22field_set_key%22:%22grid_item%22,%22username%22:%22maryannrizzo%22,%22bookmarks%22:%5B%22LT4xNzc5NjI2OTE0NjQyNjY3NDc6OTl8NzMxYzlkZDU0MTE1YjI0NDlhMzlhZDFiNTFlYjRiMzM1YTg2YmY3Y2ZmZjliZWI2NjM1YWNmM2MzODY4ZDM1Ng==%22%5D%7D,%22context%22:%7B%22app_version%22:%228e59a92%22,%22https_exp%22:false%7D,%22module%22:%7B%22name%22:%22GridItems%22,%22options%22:%7B%22scrollable%22:true,%22show_grid_footer%22:false,%22centered%22:true,%22reflow_all%22:true,%22virtualize%22:true,%22item_options%22:%7B%22show_board_context%22:true,%22show_user_icon%22:false%7D,%22layout%22:%22fixed_height%22%7D%7D,%22append%22:true,%22error_strategy%22:1%7D&source_url=/maryannrizzo/
     body:
       encoding: US-ASCII
       string: ''
@@ -4694,21 +4694,21 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 18 Aug 2014 19:53:07 GMT
+      - Tue, 19 Aug 2014 14:21:18 GMT
       Pinterest-Breed:
       - CORGI
       Pinterest-Generated-By:
-      - ngapp2-8b3d4ea0
+      - ngapp2-1a91d130
       Pinterest-Version:
-      - 2f53d32
+      - 8e59a92
       Server:
       - nginx
       Set-Cookie:
-      - _pinterest_sess=TWc9PSZoR1lSWlBRazJrVk42NGVVNUIrcE05NHpHVGZrc3BCaVdHeUhSTE9CM29SSlRDbldyNFVtU0xGbnY3ZCtONjFSZ2RVS1RIWXJzYzBCMUtNd2xWNzIxZlpaVVVSVWpvRGhYUnFEZWxnMEVEY2dQdjlwNnJ3R3poc0VpdVhTWHpjaCZCaDZsVWFvYysxY2c4Wkp0YVcwRWdYUlBwLzA9;
-        Domain=.pinterest.com; expires=Thu, 13-Aug-2015 19:53:07 GMT; httponly; Max-Age=31103999;
+      - _pinterest_sess=TWc9PSZTTUdMQlBjMkdVTlpxYW1wMW9qR2RtUi9neEtkNzI3NUxWQVJtelgvbk9kbVMvY2lZaC9hT2xzQWJ1ejBhUDNoWE1VTnF1bCs3bko2d3RRTXhlQXJsSkEvYjR5UGNLVVpPRmM4em50eTJGZVpzd0VtMkpzblg3azRrcHBBWTZoeSZQTk5QaVloMEkxeFFWR2xaUHVXdm5TaldRcnM9;
+        Domain=.pinterest.com; expires=Fri, 14-Aug-2015 14:21:18 GMT; httponly; Max-Age=31103999;
         Path=/
-      - csrftoken=PHwvPs8gafbgyrFyCdXWiyBUFBYmafRh; Domain=.pinterest.com; expires=Mon,
-        17-Aug-2015 19:53:07 GMT; Max-Age=31449600; Path=/
+      - csrftoken=KwgvVZYlNrdd6132X24Qy9WmI5gqS1PU; Domain=.pinterest.com; expires=Tue,
+        18-Aug-2015 14:21:18 GMT; Max-Age=31449600; Path=/
       Vary:
       - User-Agent, Cookie, Accept-Encoding
       Via:
@@ -4718,13 +4718,13 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Pinterest-Rid:
-      - '511720179138'
+      - '471251837939'
       X-Varnish:
-      - '566113904'
+      - '1017682486'
       X-Xss-Protection:
       - 1; mode=block
       Content-Length:
-      - '41860'
+      - '41861'
       Connection:
       - keep-alive
     body:
@@ -4737,7 +4737,7 @@ http_interactions:
         "com.pinterest", "twitter:app:id:ipad": "429047995", "og:title": "Pinterest",
         "twitter:card": "summary", "twitter:site": "@pinterest", "og:image": "http://passets-ec.pinterest.com/images/about/logos/Pinterest_Favicon.png",
         "twitter:app:id:iphone": "429047995"}, "title": "Pinterest"}, "client_context":
-        {"app_version": "2f53d32"}, "request_identifier": "511720179138", "module":
+        {"app_version": "8e59a92"}, "request_identifier": "471251837939", "module":
         {"html": "\n    \n\n\n\n\n    \n    \n\n        \n\n        \n                    <div
         class=\"item \"\n            >\n\n                        \n                                                                                            <div
         data-component-type=\"1\" class=\"noTouch Module BoardBase ajax Board boardCoverImage\"
@@ -9279,10 +9279,10 @@ http_interactions:
         false}, "layout": "fixed_height"}, "uid": "GridItems-251"}}, "resource_response":
         {"data": null, "error": null}}'
     http_version: 
-  recorded_at: Mon, 18 Aug 2014 19:53:08 GMT
+  recorded_at: Tue, 19 Aug 2014 14:21:19 GMT
 - request:
     method: get
-    uri: http://www.pinterest.com/resource/ProfileBoardsResource/get/?-=139094526248&data=%7B%22options%22:%7B%22field_set_key%22:%22grid_item%22,%22username%22:%22maryannrizzo%22,%22bookmarks%22:%5B%22LT4xNzc5NjI2OTE0NjQyNjU3Nzg6MTQ4fGNkOWNiNmE3ZTJiNzQ3ODUyNTE1MTk2YzIyYWFmNDM2YmIwNTc4NDRlOTczNTRiMjcwY2MyYTNmOTFlMmUzYjI=%22%5D%7D,%22context%22:%7B%22app_version%22:%222f53d32%22,%22https_exp%22:false%7D,%22module%22:%7B%22name%22:%22GridItems%22,%22options%22:%7B%22scrollable%22:true,%22show_grid_footer%22:false,%22centered%22:true,%22reflow_all%22:true,%22virtualize%22:true,%22item_options%22:%7B%22show_board_context%22:true,%22show_user_icon%22:false%7D,%22layout%22:%22fixed_height%22%7D%7D,%22append%22:true,%22error_strategy%22:1%7D&source_url=/maryannrizzo/
+    uri: http://www.pinterest.com/resource/ProfileBoardsResource/get/?-=139094526248&data=%7B%22options%22:%7B%22field_set_key%22:%22grid_item%22,%22username%22:%22maryannrizzo%22,%22bookmarks%22:%5B%22LT4xNzc5NjI2OTE0NjQyNjU3Nzg6MTQ4fGNkOWNiNmE3ZTJiNzQ3ODUyNTE1MTk2YzIyYWFmNDM2YmIwNTc4NDRlOTczNTRiMjcwY2MyYTNmOTFlMmUzYjI=%22%5D%7D,%22context%22:%7B%22app_version%22:%228e59a92%22,%22https_exp%22:false%7D,%22module%22:%7B%22name%22:%22GridItems%22,%22options%22:%7B%22scrollable%22:true,%22show_grid_footer%22:false,%22centered%22:true,%22reflow_all%22:true,%22virtualize%22:true,%22item_options%22:%7B%22show_board_context%22:true,%22show_user_icon%22:false%7D,%22layout%22:%22fixed_height%22%7D%7D,%22append%22:true,%22error_strategy%22:1%7D&source_url=/maryannrizzo/
     body:
       encoding: US-ASCII
       string: ''
@@ -9307,21 +9307,21 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 18 Aug 2014 19:53:11 GMT
+      - Tue, 19 Aug 2014 14:21:20 GMT
       Pinterest-Breed:
       - CORGI
       Pinterest-Generated-By:
-      - ngapp2-0ad3a458
+      - ngapp2-468bfc14
       Pinterest-Version:
-      - 2f53d32
+      - 8e59a92
       Server:
       - nginx
       Set-Cookie:
-      - _pinterest_sess=TWc9PSZ6emVSbTBNZnFibGljRWVkZ2JrajAwT2pxLzdrWEQ3RGZUNjNjOVhLbGNGWFdGelc1cHRENXdRS2l0UWxyV2c5SE1CeWlTQmpkUHlDTXYzelJtQ3pWUFlDd1JzanB5Qzk2aW53MHc4NFVSRlEwZ2RCc3pKaUN1eDRFZm1NSUc2RiZtVmEyUHFVV3VENk04SVdRV1d3aFAxdkIyYnM9;
-        Domain=.pinterest.com; expires=Thu, 13-Aug-2015 19:53:11 GMT; httponly; Max-Age=31103999;
+      - _pinterest_sess=TWc9PSZ5THZKQTE5cjZ1NmRoMGkxU3VlczU4R2J3c3N2Qm51VXlRRnVUdCs5M05Gc21IM3hUenQ1NWNsS05jUHVDcW9MWUZNaHAzNjJPbDg3T1RmWW5BaGtRcnRXTlR3RVhLWDdHeUhva2hNMkEvazE0NzQ0TXNkQ2hVYXg5OENYTk9CdCZiTEJ6TXIreDNnanBjSE5UWExqMzdGR1FmSmc9;
+        Domain=.pinterest.com; expires=Fri, 14-Aug-2015 14:21:20 GMT; httponly; Max-Age=31103999;
         Path=/
-      - csrftoken=Z3D4sbtOhNB5qePGu9f6RAshDKF8dXiC; Domain=.pinterest.com; expires=Mon,
-        17-Aug-2015 19:53:11 GMT; Max-Age=31449600; Path=/
+      - csrftoken=xxi32INSvMmlUQw6TokdtXw3EXa3F3MR; Domain=.pinterest.com; expires=Tue,
+        18-Aug-2015 14:21:20 GMT; Max-Age=31449600; Path=/
       Vary:
       - User-Agent, Cookie, Accept-Encoding
       Via:
@@ -9331,9 +9331,9 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Pinterest-Rid:
-      - '526234930370'
+      - '455749414463'
       X-Varnish:
-      - '1650696944'
+      - '1068715404'
       X-Xss-Protection:
       - 1; mode=block
       Content-Length:
@@ -9350,7 +9350,7 @@ http_interactions:
         "com.pinterest", "twitter:app:id:ipad": "429047995", "og:title": "Pinterest",
         "twitter:card": "summary", "twitter:site": "@pinterest", "og:image": "http://passets-ec.pinterest.com/images/about/logos/Pinterest_Favicon.png",
         "twitter:app:id:iphone": "429047995"}, "title": "Pinterest"}, "client_context":
-        {"app_version": "2f53d32"}, "request_identifier": "526234930370", "module":
+        {"app_version": "8e59a92"}, "request_identifier": "455749414463", "module":
         {"html": "\n    \n\n\n\n\n    \n    \n\n        \n\n        \n                    <div
         class=\"item \"\n            >\n\n                        \n                                                                                            <div
         data-component-type=\"1\" class=\"noTouch Module BoardBase ajax Board boardCoverImage\"
@@ -10218,12 +10218,12 @@ http_interactions:
         class=\"boardCover\" alt=\"Entertaining &amp; Tabletop  / by Maryann Rizzo\">\n            <span
         class=\"boardPinCount\">\n                                <div class=\"PinCount
         ajax Module\" id=\"PinCount-201\">\n\n\n\n\n    \n                            <span
-        class=''value''>2,180</span> <span class=''label''>Pins</span>    \n    \n</div>\n            </span>\n        </div>\n\n        <ul
+        class=''value''>2,181</span> <span class=''label''>Pins</span>    \n    \n</div>\n            </span>\n        </div>\n\n        <ul
         class=\"boardThumbs\">\n                            <li>\n                                        <span
+        class=\"hoverMask\"></span>\n                    <img src=\"http://media-cache-ak0.pinimg.com/45x45/eb/3a/3c/eb3a3c905b07aa4943d8eabd1c4fe263.jpg\"        class=\"thumb\"\n    style=\"\">\n                </li>\n                            <li>\n                                        <span
         class=\"hoverMask\"></span>\n                    <img src=\"http://media-cache-ec0.pinimg.com/45x45/1d/30/59/1d30595b26e25264e86a6d1f0b0fbc27.jpg\"        class=\"thumb\"\n    style=\"\">\n                </li>\n                            <li>\n                                        <span
         class=\"hoverMask\"></span>\n                    <img src=\"http://media-cache-ak0.pinimg.com/45x45/7e/84/a8/7e84a892b943f8d48e90d1a0a545dd5f.jpg\"        class=\"thumb\"\n    style=\"\">\n                </li>\n                            <li>\n                                        <span
-        class=\"hoverMask\"></span>\n                    <img src=\"http://media-cache-ec0.pinimg.com/45x45/2e/0f/48/2e0f48b790b03b1d2e13b76eeb181f28.jpg\"        class=\"thumb\"\n    style=\"\">\n                </li>\n                            <li>\n                                        <span
-        class=\"hoverMask\"></span>\n                    <img src=\"http://media-cache-cd0.pinimg.com/45x45/72/f3/31/72f3318ebf5f34fdf4e3844f19d2221c.jpg\"        class=\"thumb\"\n    style=\"\">\n                </li>\n                    </ul>\n\n            </a>\n    \n                                <button
+        class=\"hoverMask\"></span>\n                    <img src=\"http://media-cache-ec0.pinimg.com/45x45/2e/0f/48/2e0f48b790b03b1d2e13b76eeb181f28.jpg\"        class=\"thumb\"\n    style=\"\">\n                </li>\n                    </ul>\n\n            </a>\n    \n                                <button
         data-element-type=\"37\" type=\"button\" class=\"hasText btn rounded Button
         boardFollowUnfollowButton ajax Module BoardFollowButton notNavigatable ui-FollowButton\"
         id=\"BoardFollowButton-202\">\n\n\n\n\n\n        \n\n\n    \n\n\n<span class=\"buttonText\">Follow</span>\n        </button>\n                        \n</div>\n                    </div>\n            \n                    <div
@@ -10241,12 +10241,12 @@ http_interactions:
         class=\"boardCover\" alt=\"Weddings &amp; Events / by Maryann Rizzo\">\n            <span
         class=\"boardPinCount\">\n                                <div class=\"PinCount
         ajax Module\" id=\"PinCount-205\">\n\n\n\n\n    \n                            <span
-        class=''value''>2,010</span> <span class=''label''>Pins</span>    \n    \n</div>\n            </span>\n        </div>\n\n        <ul
+        class=''value''>2,011</span> <span class=''label''>Pins</span>    \n    \n</div>\n            </span>\n        </div>\n\n        <ul
         class=\"boardThumbs\">\n                            <li>\n                                        <span
+        class=\"hoverMask\"></span>\n                    <img src=\"http://media-cache-ak0.pinimg.com/45x45/47/6a/e7/476ae76f780904cdd86ce384dc79f771.jpg\"        class=\"thumb\"\n    style=\"\">\n                </li>\n                            <li>\n                                        <span
         class=\"hoverMask\"></span>\n                    <img src=\"http://media-cache-cd0.pinimg.com/45x45/1e/8a/98/1e8a984bd4a3b2e5de2782804effcc0e.jpg\"        class=\"thumb\"\n    style=\"\">\n                </li>\n                            <li>\n                                        <span
         class=\"hoverMask\"></span>\n                    <img src=\"http://media-cache-ec0.pinimg.com/45x45/dc/16/fc/dc16fcf2f711b0fb5bb3a69c1ec45554.jpg\"        class=\"thumb\"\n    style=\"\">\n                </li>\n                            <li>\n                                        <span
-        class=\"hoverMask\"></span>\n                    <img src=\"http://media-cache-ak0.pinimg.com/45x45/08/19/58/08195812fbfbf6be0fe162183c52896f.jpg\"        class=\"thumb\"\n    style=\"\">\n                </li>\n                            <li>\n                                        <span
-        class=\"hoverMask\"></span>\n                    <img src=\"http://media-cache-ak0.pinimg.com/45x45/ac/77/92/ac779272c02b4f6ebfc5bc13babf1449.jpg\"        class=\"thumb\"\n    style=\"\">\n                </li>\n                    </ul>\n\n            </a>\n    \n                                <button
+        class=\"hoverMask\"></span>\n                    <img src=\"http://media-cache-ak0.pinimg.com/45x45/08/19/58/08195812fbfbf6be0fe162183c52896f.jpg\"        class=\"thumb\"\n    style=\"\">\n                </li>\n                    </ul>\n\n            </a>\n    \n                                <button
         data-element-type=\"37\" type=\"button\" class=\"hasText btn rounded Button
         boardFollowUnfollowButton ajax Module BoardFollowButton notNavigatable ui-FollowButton\"
         id=\"BoardFollowButton-206\">\n\n\n\n\n\n        \n\n\n    \n\n\n<span class=\"buttonText\">Follow</span>\n        </button>\n                        \n</div>\n                    </div>\n            \n                    <div
@@ -12400,11 +12400,11 @@ http_interactions:
         "children": [], "errorStrategy": 2, "data": {"is_collaborative": false, "layout":
         "default", "description": "", "cover_images": {"216x146": {"url": "http://media-cache-ak0.pinimg.com/216x146/b9/a5/6d/b9a56de336d1c2b9ed8f62ecf020be2b.jpg",
         "width": 216, "height": 146}}, "privacy": "public", "url": "/maryannrizzo/entertaining-tabletop/",
-        "pin_count": 2180, "pin_thumbnail_urls": ["http://media-cache-ec0.pinimg.com/45x45/1d/30/59/1d30595b26e25264e86a6d1f0b0fbc27.jpg",
+        "pin_count": 2181, "pin_thumbnail_urls": ["http://media-cache-ak0.pinimg.com/45x45/eb/3a/3c/eb3a3c905b07aa4943d8eabd1c4fe263.jpg",
+        "http://media-cache-ec0.pinimg.com/45x45/1d/30/59/1d30595b26e25264e86a6d1f0b0fbc27.jpg",
         "http://media-cache-ak0.pinimg.com/45x45/7e/84/a8/7e84a892b943f8d48e90d1a0a545dd5f.jpg",
         "http://media-cache-ec0.pinimg.com/45x45/2e/0f/48/2e0f48b790b03b1d2e13b76eeb181f28.jpg",
-        "http://media-cache-cd0.pinimg.com/45x45/72/f3/31/72f3318ebf5f34fdf4e3844f19d2221c.jpg",
-        "http://media-cache-ec0.pinimg.com/45x45/1c/d0/0e/1cd00ea36c5aa0ae24dce7203bf773e4.jpg"],
+        "http://media-cache-cd0.pinimg.com/45x45/72/f3/31/72f3318ebf5f34fdf4e3844f19d2221c.jpg"],
         "image_thumbnail_url": "http://media-cache-ak0.pinimg.com/upload/177962691464269042_board_thumbnail_2013-08-01-01-20-46_95624_60.jpg",
         "access": [], "collaborated_by_me": false, "owner": {"username": "maryannrizzo",
         "domain_verified": true, "image_medium_url": "http://media-cache-ec0.pinimg.com/avatars/maryannrizzo_1391629724_75.jpg",
@@ -12423,7 +12423,7 @@ http_interactions:
         false, "title_tag": "div", "size": "boardRepTitle"}, "uid": "User-200"}, {"resource":
         {"name": "BoardResource", "options": {"board_id": "177962691464269042", "field_set_key":
         "pin_count"}}, "name": "PinCount", "children": [], "errorStrategy": 2, "data":
-        {"type": "board", "pin_count": 2180, "id": "177962691464269042"}, "options":
+        {"type": "board", "pin_count": 2181, "id": "177962691464269042"}, "options":
         {"can_update_count": false}, "uid": "PinCount-201"}, {"resource": null, "name":
         "BoardFollowButton", "children": [], "errorStrategy": 2, "options": {"board_id":
         "177962691464269042", "followed": false, "class_name": "boardFollowUnfollowButton",
@@ -12434,11 +12434,11 @@ http_interactions:
         "errorStrategy": 2, "data": {"is_collaborative": false, "layout": "default",
         "description": "", "cover_images": {"216x146": {"url": "http://media-cache-ak0.pinimg.com/216x146/b9/a5/6d/b9a56de336d1c2b9ed8f62ecf020be2b.jpg",
         "width": 216, "height": 146}}, "privacy": "public", "url": "/maryannrizzo/entertaining-tabletop/",
-        "pin_count": 2180, "pin_thumbnail_urls": ["http://media-cache-ec0.pinimg.com/45x45/1d/30/59/1d30595b26e25264e86a6d1f0b0fbc27.jpg",
+        "pin_count": 2181, "pin_thumbnail_urls": ["http://media-cache-ak0.pinimg.com/45x45/eb/3a/3c/eb3a3c905b07aa4943d8eabd1c4fe263.jpg",
+        "http://media-cache-ec0.pinimg.com/45x45/1d/30/59/1d30595b26e25264e86a6d1f0b0fbc27.jpg",
         "http://media-cache-ak0.pinimg.com/45x45/7e/84/a8/7e84a892b943f8d48e90d1a0a545dd5f.jpg",
         "http://media-cache-ec0.pinimg.com/45x45/2e/0f/48/2e0f48b790b03b1d2e13b76eeb181f28.jpg",
-        "http://media-cache-cd0.pinimg.com/45x45/72/f3/31/72f3318ebf5f34fdf4e3844f19d2221c.jpg",
-        "http://media-cache-ec0.pinimg.com/45x45/1c/d0/0e/1cd00ea36c5aa0ae24dce7203bf773e4.jpg"],
+        "http://media-cache-cd0.pinimg.com/45x45/72/f3/31/72f3318ebf5f34fdf4e3844f19d2221c.jpg"],
         "image_thumbnail_url": "http://media-cache-ak0.pinimg.com/upload/177962691464269042_board_thumbnail_2013-08-01-01-20-46_95624_60.jpg",
         "access": [], "collaborated_by_me": false, "owner": {"username": "maryannrizzo",
         "domain_verified": true, "image_medium_url": "http://media-cache-ec0.pinimg.com/avatars/maryannrizzo_1391629724_75.jpg",
@@ -12452,11 +12452,11 @@ http_interactions:
         2, "data": {"is_collaborative": false, "layout": "default", "description":
         "", "cover_images": {"216x146": {"url": "http://media-cache-ak0.pinimg.com/custom_covers/216x146/177962691464269023_1363746223.jpg",
         "width": 216, "height": 146}}, "privacy": "public", "url": "/maryannrizzo/weddings-events/",
-        "pin_count": 2010, "pin_thumbnail_urls": ["http://media-cache-cd0.pinimg.com/45x45/1e/8a/98/1e8a984bd4a3b2e5de2782804effcc0e.jpg",
+        "pin_count": 2011, "pin_thumbnail_urls": ["http://media-cache-ak0.pinimg.com/45x45/47/6a/e7/476ae76f780904cdd86ce384dc79f771.jpg",
+        "http://media-cache-cd0.pinimg.com/45x45/1e/8a/98/1e8a984bd4a3b2e5de2782804effcc0e.jpg",
         "http://media-cache-ec0.pinimg.com/45x45/dc/16/fc/dc16fcf2f711b0fb5bb3a69c1ec45554.jpg",
         "http://media-cache-ak0.pinimg.com/45x45/08/19/58/08195812fbfbf6be0fe162183c52896f.jpg",
-        "http://media-cache-ak0.pinimg.com/45x45/ac/77/92/ac779272c02b4f6ebfc5bc13babf1449.jpg",
-        "http://media-cache-ak0.pinimg.com/45x45/b7/6a/e0/b76ae09595ce7e66a50dc79ae7c6df67.jpg"],
+        "http://media-cache-ak0.pinimg.com/45x45/ac/77/92/ac779272c02b4f6ebfc5bc13babf1449.jpg"],
         "image_thumbnail_url": "http://media-cache-ec0.pinimg.com/upload/177962691464269023_board_thumbnail_2013-08-01-00-59-05_73671_60.jpg",
         "access": [], "collaborated_by_me": false, "owner": {"username": "maryannrizzo",
         "domain_verified": true, "image_medium_url": "http://media-cache-ec0.pinimg.com/avatars/maryannrizzo_1391629724_75.jpg",
@@ -12474,7 +12474,7 @@ http_interactions:
         false, "title_tag": "div", "size": "boardRepTitle"}, "uid": "User-204"}, {"resource":
         {"name": "BoardResource", "options": {"board_id": "177962691464269023", "field_set_key":
         "pin_count"}}, "name": "PinCount", "children": [], "errorStrategy": 2, "data":
-        {"type": "board", "pin_count": 2010, "id": "177962691464269023"}, "options":
+        {"type": "board", "pin_count": 2011, "id": "177962691464269023"}, "options":
         {"can_update_count": false}, "uid": "PinCount-205"}, {"resource": null, "name":
         "BoardFollowButton", "children": [], "errorStrategy": 2, "options": {"board_id":
         "177962691464269023", "followed": false, "class_name": "boardFollowUnfollowButton",
@@ -12485,11 +12485,11 @@ http_interactions:
         "errorStrategy": 2, "data": {"is_collaborative": false, "layout": "default",
         "description": "", "cover_images": {"216x146": {"url": "http://media-cache-ak0.pinimg.com/custom_covers/216x146/177962691464269023_1363746223.jpg",
         "width": 216, "height": 146}}, "privacy": "public", "url": "/maryannrizzo/weddings-events/",
-        "pin_count": 2010, "pin_thumbnail_urls": ["http://media-cache-cd0.pinimg.com/45x45/1e/8a/98/1e8a984bd4a3b2e5de2782804effcc0e.jpg",
+        "pin_count": 2011, "pin_thumbnail_urls": ["http://media-cache-ak0.pinimg.com/45x45/47/6a/e7/476ae76f780904cdd86ce384dc79f771.jpg",
+        "http://media-cache-cd0.pinimg.com/45x45/1e/8a/98/1e8a984bd4a3b2e5de2782804effcc0e.jpg",
         "http://media-cache-ec0.pinimg.com/45x45/dc/16/fc/dc16fcf2f711b0fb5bb3a69c1ec45554.jpg",
         "http://media-cache-ak0.pinimg.com/45x45/08/19/58/08195812fbfbf6be0fe162183c52896f.jpg",
-        "http://media-cache-ak0.pinimg.com/45x45/ac/77/92/ac779272c02b4f6ebfc5bc13babf1449.jpg",
-        "http://media-cache-ak0.pinimg.com/45x45/b7/6a/e0/b76ae09595ce7e66a50dc79ae7c6df67.jpg"],
+        "http://media-cache-ak0.pinimg.com/45x45/ac/77/92/ac779272c02b4f6ebfc5bc13babf1449.jpg"],
         "image_thumbnail_url": "http://media-cache-ec0.pinimg.com/upload/177962691464269023_board_thumbnail_2013-08-01-00-59-05_73671_60.jpg",
         "access": [], "collaborated_by_me": false, "owner": {"username": "maryannrizzo",
         "domain_verified": true, "image_medium_url": "http://media-cache-ec0.pinimg.com/avatars/maryannrizzo_1391629724_75.jpg",
@@ -13589,11 +13589,11 @@ http_interactions:
         false, "layout": "default", "description": "", "cover_images": {"216x146":
         {"url": "http://media-cache-ak0.pinimg.com/216x146/b9/a5/6d/b9a56de336d1c2b9ed8f62ecf020be2b.jpg",
         "width": 216, "height": 146}}, "privacy": "public", "url": "/maryannrizzo/entertaining-tabletop/",
-        "pin_count": 2180, "pin_thumbnail_urls": ["http://media-cache-ec0.pinimg.com/45x45/1d/30/59/1d30595b26e25264e86a6d1f0b0fbc27.jpg",
+        "pin_count": 2181, "pin_thumbnail_urls": ["http://media-cache-ak0.pinimg.com/45x45/eb/3a/3c/eb3a3c905b07aa4943d8eabd1c4fe263.jpg",
+        "http://media-cache-ec0.pinimg.com/45x45/1d/30/59/1d30595b26e25264e86a6d1f0b0fbc27.jpg",
         "http://media-cache-ak0.pinimg.com/45x45/7e/84/a8/7e84a892b943f8d48e90d1a0a545dd5f.jpg",
         "http://media-cache-ec0.pinimg.com/45x45/2e/0f/48/2e0f48b790b03b1d2e13b76eeb181f28.jpg",
-        "http://media-cache-cd0.pinimg.com/45x45/72/f3/31/72f3318ebf5f34fdf4e3844f19d2221c.jpg",
-        "http://media-cache-ec0.pinimg.com/45x45/1c/d0/0e/1cd00ea36c5aa0ae24dce7203bf773e4.jpg"],
+        "http://media-cache-cd0.pinimg.com/45x45/72/f3/31/72f3318ebf5f34fdf4e3844f19d2221c.jpg"],
         "image_thumbnail_url": "http://media-cache-ak0.pinimg.com/upload/177962691464269042_board_thumbnail_2013-08-01-01-20-46_95624_60.jpg",
         "access": [], "collaborated_by_me": false, "owner": {"username": "maryannrizzo",
         "domain_verified": true, "image_medium_url": "http://media-cache-ec0.pinimg.com/avatars/maryannrizzo_1391629724_75.jpg",
@@ -13603,11 +13603,11 @@ http_interactions:
         false, "layout": "default", "description": "", "cover_images": {"216x146":
         {"url": "http://media-cache-ak0.pinimg.com/custom_covers/216x146/177962691464269023_1363746223.jpg",
         "width": 216, "height": 146}}, "privacy": "public", "url": "/maryannrizzo/weddings-events/",
-        "pin_count": 2010, "pin_thumbnail_urls": ["http://media-cache-cd0.pinimg.com/45x45/1e/8a/98/1e8a984bd4a3b2e5de2782804effcc0e.jpg",
+        "pin_count": 2011, "pin_thumbnail_urls": ["http://media-cache-ak0.pinimg.com/45x45/47/6a/e7/476ae76f780904cdd86ce384dc79f771.jpg",
+        "http://media-cache-cd0.pinimg.com/45x45/1e/8a/98/1e8a984bd4a3b2e5de2782804effcc0e.jpg",
         "http://media-cache-ec0.pinimg.com/45x45/dc/16/fc/dc16fcf2f711b0fb5bb3a69c1ec45554.jpg",
         "http://media-cache-ak0.pinimg.com/45x45/08/19/58/08195812fbfbf6be0fe162183c52896f.jpg",
-        "http://media-cache-ak0.pinimg.com/45x45/ac/77/92/ac779272c02b4f6ebfc5bc13babf1449.jpg",
-        "http://media-cache-ak0.pinimg.com/45x45/b7/6a/e0/b76ae09595ce7e66a50dc79ae7c6df67.jpg"],
+        "http://media-cache-ak0.pinimg.com/45x45/ac/77/92/ac779272c02b4f6ebfc5bc13babf1449.jpg"],
         "image_thumbnail_url": "http://media-cache-ec0.pinimg.com/upload/177962691464269023_board_thumbnail_2013-08-01-00-59-05_73671_60.jpg",
         "access": [], "collaborated_by_me": false, "owner": {"username": "maryannrizzo",
         "domain_verified": true, "image_medium_url": "http://media-cache-ec0.pinimg.com/avatars/maryannrizzo_1391629724_75.jpg",
@@ -13775,10 +13775,10 @@ http_interactions:
         "layout": "fixed_height"}, "uid": "GridItems-251"}}, "resource_response":
         {"data": null, "error": null}}'
     http_version: 
-  recorded_at: Mon, 18 Aug 2014 19:53:11 GMT
+  recorded_at: Tue, 19 Aug 2014 14:21:20 GMT
 - request:
     method: get
-    uri: http://www.pinterest.com/resource/ProfileBoardsResource/get/?-=139094526248&data=%7B%22options%22:%7B%22field_set_key%22:%22grid_item%22,%22username%22:%22maryannrizzo%22,%22bookmarks%22:%5B%22LT4xNzc5NjI2OTE0NjQyNjY2NTI6MTk3fDVhMThkMmE1YmQyNWVkM2JiMjZiM2JmNDBmZmQwYTZmOGY2MWI0NDk0YmU3Njc0OWQ3YzU3ZjQzZmRjNzZkNzY=%22%5D%7D,%22context%22:%7B%22app_version%22:%222f53d32%22,%22https_exp%22:false%7D,%22module%22:%7B%22name%22:%22GridItems%22,%22options%22:%7B%22scrollable%22:true,%22show_grid_footer%22:false,%22centered%22:true,%22reflow_all%22:true,%22virtualize%22:true,%22item_options%22:%7B%22show_board_context%22:true,%22show_user_icon%22:false%7D,%22layout%22:%22fixed_height%22%7D%7D,%22append%22:true,%22error_strategy%22:1%7D&source_url=/maryannrizzo/
+    uri: http://www.pinterest.com/resource/ProfileBoardsResource/get/?-=139094526248&data=%7B%22options%22:%7B%22field_set_key%22:%22grid_item%22,%22username%22:%22maryannrizzo%22,%22bookmarks%22:%5B%22LT4xNzc5NjI2OTE0NjQyNjY2NTI6MTk3fDVhMThkMmE1YmQyNWVkM2JiMjZiM2JmNDBmZmQwYTZmOGY2MWI0NDk0YmU3Njc0OWQ3YzU3ZjQzZmRjNzZkNzY=%22%5D%7D,%22context%22:%7B%22app_version%22:%228e59a92%22,%22https_exp%22:false%7D,%22module%22:%7B%22name%22:%22GridItems%22,%22options%22:%7B%22scrollable%22:true,%22show_grid_footer%22:false,%22centered%22:true,%22reflow_all%22:true,%22virtualize%22:true,%22item_options%22:%7B%22show_board_context%22:true,%22show_user_icon%22:false%7D,%22layout%22:%22fixed_height%22%7D%7D,%22append%22:true,%22error_strategy%22:1%7D&source_url=/maryannrizzo/
     body:
       encoding: US-ASCII
       string: ''
@@ -13803,21 +13803,21 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 18 Aug 2014 19:53:13 GMT
+      - Tue, 19 Aug 2014 14:21:23 GMT
       Pinterest-Breed:
       - CORGI
       Pinterest-Generated-By:
-      - ngapp2-6b9fe839
+      - ngapp2-26b4f20c
       Pinterest-Version:
-      - 2f53d32
+      - 8e59a92
       Server:
       - nginx
       Set-Cookie:
-      - _pinterest_sess=TWc9PSZNd1RGR0ZJWFNocjNxSCtQblJlaEJoTzdMU1paMFlnQlMxOXBJYmQxc21UanhLZWtDbkRNVVNHZEVlcU53TzVjSk92MU1NdnJPQ0hwdU9vdU5sUkp5bU5wbkNNMEJISWdwZ1NwUFZta1JnVFBmNWhVQ2lhbVpxU3U2RmlxR3dzbCZRT3R1bGZtcHB0ZVF2SG04V2U5TUNCY3ZKYlE9;
-        Domain=.pinterest.com; expires=Thu, 13-Aug-2015 19:53:13 GMT; httponly; Max-Age=31103999;
+      - _pinterest_sess=TWc9PSZ2bTlLT01ROFZNTjdYanQ0VzV0aFc3bGdVbVphcm5zamE0THZMRTlyWVdRMm5XclBjQjNDNzk4MWhld2o5d3F2NTVqMmU0SjlYQnIrcmxoUkxkeXE0RFp4Z3dPWHJoclVzTndyVnBZaktrRnlxNlBKY1FOenJnOS8reTkreHVrYyY2S08ycGlzdEJRU2Nlekd6WjZybEJHMXZxeVE9;
+        Domain=.pinterest.com; expires=Fri, 14-Aug-2015 14:21:23 GMT; httponly; Max-Age=31103999;
         Path=/
-      - csrftoken=hK2GPKkIZ0gp6f2iD3PrODNg72m8Coku; Domain=.pinterest.com; expires=Mon,
-        17-Aug-2015 19:53:13 GMT; Max-Age=31449600; Path=/
+      - csrftoken=yakPZhaEPjtUOkB2nFWz0tqYn9QJgKGC; Domain=.pinterest.com; expires=Tue,
+        18-Aug-2015 14:21:23 GMT; Max-Age=31449600; Path=/
       Vary:
       - User-Agent, Cookie, Accept-Encoding
       Via:
@@ -13827,13 +13827,13 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Pinterest-Rid:
-      - '347733007796'
+      - '189498885999'
       X-Varnish:
-      - '157531399'
+      - '229712680'
       X-Xss-Protection:
       - 1; mode=block
       Content-Length:
-      - '41002'
+      - '41017'
       Connection:
       - keep-alive
     body:
@@ -13846,7 +13846,7 @@ http_interactions:
         "com.pinterest", "twitter:app:id:ipad": "429047995", "og:title": "Pinterest",
         "twitter:card": "summary", "twitter:site": "@pinterest", "og:image": "http://passets-ec.pinterest.com/images/about/logos/Pinterest_Favicon.png",
         "twitter:app:id:iphone": "429047995"}, "title": "Pinterest"}, "client_context":
-        {"app_version": "2f53d32"}, "request_identifier": "347733007796", "module":
+        {"app_version": "8e59a92"}, "request_identifier": "189498885999", "module":
         {"html": "\n    \n\n\n\n\n    \n    \n\n        \n\n        \n                    <div
         class=\"item \"\n            >\n\n                        \n                                                                                            <div
         data-component-type=\"1\" class=\"noTouch Module BoardBase ajax Board boardCoverImage\"
@@ -13992,10 +13992,10 @@ http_interactions:
         ajax Module\" id=\"PinCount-73\">\n\n\n\n\n    \n                            <span
         class=''value''>221</span> <span class=''label''>Pins</span>    \n    \n</div>\n            </span>\n        </div>\n\n        <ul
         class=\"boardThumbs\">\n                            <li>\n                                        <span
+        class=\"hoverMask\"></span>\n                    <img src=\"http://media-cache-ak0.pinimg.com/45x45/f7/9e/65/f79e65f2d3f4c6edc3473d5633a32122.jpg\"        class=\"thumb\"\n    style=\"\">\n                </li>\n                            <li>\n                                        <span
+        class=\"hoverMask\"></span>\n                    <img src=\"http://media-cache-ec0.pinimg.com/45x45/84/e9/17/84e9177a3a99fea2e97f1a3d992937a2.jpg\"        class=\"thumb\"\n    style=\"\">\n                </li>\n                            <li>\n                                        <span
         class=\"hoverMask\"></span>\n                    <img src=\"http://media-cache-ak0.pinimg.com/45x45/a1/12/87/a11287b17114b3cbb54efad5e68f1ecb.jpg\"        class=\"thumb\"\n    style=\"\">\n                </li>\n                            <li>\n                                        <span
-        class=\"hoverMask\"></span>\n                    <img src=\"http://media-cache-ec0.pinimg.com/45x45/1a/cc/75/1acc75bb816bb477f92a633decea6029.jpg\"        class=\"thumb\"\n    style=\"\">\n                </li>\n                            <li>\n                                        <span
-        class=\"hoverMask\"></span>\n                    <img src=\"http://media-cache-ec0.pinimg.com/45x45/d5/2a/9e/d52a9ea3ff6b3dd9482f96a898aa068b.jpg\"        class=\"thumb\"\n    style=\"\">\n                </li>\n                            <li>\n                                        <span
-        class=\"hoverMask\"></span>\n                    <img src=\"http://media-cache-ak0.pinimg.com/45x45/f7/9e/65/f79e65f2d3f4c6edc3473d5633a32122.jpg\"        class=\"thumb\"\n    style=\"\">\n                </li>\n                    </ul>\n\n            </a>\n    \n                                <button
+        class=\"hoverMask\"></span>\n                    <img src=\"http://media-cache-ak0.pinimg.com/45x45/07/bf/48/07bf484864067af980ac358b2b14a56f.jpg\"        class=\"thumb\"\n    style=\"\">\n                </li>\n                    </ul>\n\n            </a>\n    \n                                <button
         data-element-type=\"37\" type=\"button\" class=\"hasText btn rounded Button
         boardFollowUnfollowButton ajax Module BoardFollowButton notNavigatable ui-FollowButton\"
         id=\"BoardFollowButton-74\">\n\n\n\n\n\n        \n\n\n    \n\n\n<span class=\"buttonText\">Follow</span>\n        </button>\n                        \n</div>\n                    </div>\n            \n                    <div
@@ -14920,7 +14920,7 @@ http_interactions:
         class=\"boardCover\" alt=\"Travel. New York  / by Maryann Rizzo\">\n            <span
         class=\"boardPinCount\">\n                                <div class=\"PinCount
         ajax Module\" id=\"PinCount-233\">\n\n\n\n\n    \n                            <span
-        class=''value''>513</span> <span class=''label''>Pins</span>    \n    \n</div>\n            </span>\n        </div>\n\n        <ul
+        class=''value''>512</span> <span class=''label''>Pins</span>    \n    \n</div>\n            </span>\n        </div>\n\n        <ul
         class=\"boardThumbs\">\n                            <li>\n                                        <span
         class=\"hoverMask\"></span>\n                    <img src=\"http://media-cache-ak0.pinimg.com/45x45/98/86/f7/9886f7f1e4d682196fd5239f1e2958d3.jpg\"        class=\"thumb\"\n    style=\"\">\n                </li>\n                            <li>\n                                        <span
         class=\"hoverMask\"></span>\n                    <img src=\"http://media-cache-ec0.pinimg.com/45x45/d4/03/69/d4036954ca2daac0e20e61d3b726623d.jpg\"        class=\"thumb\"\n    style=\"\">\n                </li>\n                            <li>\n                                        <span
@@ -15306,11 +15306,11 @@ http_interactions:
         "children": [], "errorStrategy": 2, "data": {"is_collaborative": false, "layout":
         "default", "description": " :)", "cover_images": {"216x146": {"url": "http://media-cache-ec0.pinimg.com/custom_covers/216x146/177962691464303433_1407359342.jpg",
         "width": 216, "height": 146}}, "privacy": "public", "url": "/maryannrizzo/unlikely-friends/",
-        "pin_count": 221, "pin_thumbnail_urls": ["http://media-cache-ak0.pinimg.com/45x45/a1/12/87/a11287b17114b3cbb54efad5e68f1ecb.jpg",
-        "http://media-cache-ec0.pinimg.com/45x45/1a/cc/75/1acc75bb816bb477f92a633decea6029.jpg",
-        "http://media-cache-ec0.pinimg.com/45x45/d5/2a/9e/d52a9ea3ff6b3dd9482f96a898aa068b.jpg",
-        "http://media-cache-ak0.pinimg.com/45x45/f7/9e/65/f79e65f2d3f4c6edc3473d5633a32122.jpg",
-        "http://media-cache-ec0.pinimg.com/45x45/84/e9/17/84e9177a3a99fea2e97f1a3d992937a2.jpg"],
+        "pin_count": 221, "pin_thumbnail_urls": ["http://media-cache-ak0.pinimg.com/45x45/f7/9e/65/f79e65f2d3f4c6edc3473d5633a32122.jpg",
+        "http://media-cache-ec0.pinimg.com/45x45/84/e9/17/84e9177a3a99fea2e97f1a3d992937a2.jpg",
+        "http://media-cache-ak0.pinimg.com/45x45/a1/12/87/a11287b17114b3cbb54efad5e68f1ecb.jpg",
+        "http://media-cache-ak0.pinimg.com/45x45/07/bf/48/07bf484864067af980ac358b2b14a56f.jpg",
+        "http://media-cache-ec0.pinimg.com/45x45/fb/7f/fc/fb7ffc541e1c3fb9d7c674fba556a317.jpg"],
         "image_thumbnail_url": "http://media-cache-ak0.pinimg.com/upload/177962691464303433_board_thumbnail_2014-08-06-18-50-05_94449_60.jpg",
         "access": [], "collaborated_by_me": false, "owner": {"username": "maryannrizzo",
         "domain_verified": true, "image_medium_url": "http://media-cache-ec0.pinimg.com/avatars/maryannrizzo_1391629724_75.jpg",
@@ -15339,11 +15339,11 @@ http_interactions:
         "errorStrategy": 2, "data": {"is_collaborative": false, "layout": "default",
         "description": " :)", "cover_images": {"216x146": {"url": "http://media-cache-ec0.pinimg.com/custom_covers/216x146/177962691464303433_1407359342.jpg",
         "width": 216, "height": 146}}, "privacy": "public", "url": "/maryannrizzo/unlikely-friends/",
-        "pin_count": 221, "pin_thumbnail_urls": ["http://media-cache-ak0.pinimg.com/45x45/a1/12/87/a11287b17114b3cbb54efad5e68f1ecb.jpg",
-        "http://media-cache-ec0.pinimg.com/45x45/1a/cc/75/1acc75bb816bb477f92a633decea6029.jpg",
-        "http://media-cache-ec0.pinimg.com/45x45/d5/2a/9e/d52a9ea3ff6b3dd9482f96a898aa068b.jpg",
-        "http://media-cache-ak0.pinimg.com/45x45/f7/9e/65/f79e65f2d3f4c6edc3473d5633a32122.jpg",
-        "http://media-cache-ec0.pinimg.com/45x45/84/e9/17/84e9177a3a99fea2e97f1a3d992937a2.jpg"],
+        "pin_count": 221, "pin_thumbnail_urls": ["http://media-cache-ak0.pinimg.com/45x45/f7/9e/65/f79e65f2d3f4c6edc3473d5633a32122.jpg",
+        "http://media-cache-ec0.pinimg.com/45x45/84/e9/17/84e9177a3a99fea2e97f1a3d992937a2.jpg",
+        "http://media-cache-ak0.pinimg.com/45x45/a1/12/87/a11287b17114b3cbb54efad5e68f1ecb.jpg",
+        "http://media-cache-ak0.pinimg.com/45x45/07/bf/48/07bf484864067af980ac358b2b14a56f.jpg",
+        "http://media-cache-ec0.pinimg.com/45x45/fb/7f/fc/fb7ffc541e1c3fb9d7c674fba556a317.jpg"],
         "image_thumbnail_url": "http://media-cache-ak0.pinimg.com/upload/177962691464303433_board_thumbnail_2014-08-06-18-50-05_94449_60.jpg",
         "access": [], "collaborated_by_me": false, "owner": {"username": "maryannrizzo",
         "domain_verified": true, "image_medium_url": "http://media-cache-ec0.pinimg.com/avatars/maryannrizzo_1391629724_75.jpg",
@@ -17366,7 +17366,7 @@ http_interactions:
         "children": [], "errorStrategy": 2, "data": {"is_collaborative": false, "layout":
         "default", "description": "", "cover_images": {"216x146": {"url": "http://media-cache-ec0.pinimg.com/custom_covers/216x146/177962691464267334_1363748422.jpg",
         "width": 216, "height": 146}}, "privacy": "public", "url": "/maryannrizzo/travel-new-york/",
-        "pin_count": 513, "pin_thumbnail_urls": ["http://media-cache-ak0.pinimg.com/45x45/98/86/f7/9886f7f1e4d682196fd5239f1e2958d3.jpg",
+        "pin_count": 512, "pin_thumbnail_urls": ["http://media-cache-ak0.pinimg.com/45x45/98/86/f7/9886f7f1e4d682196fd5239f1e2958d3.jpg",
         "http://media-cache-ec0.pinimg.com/45x45/d4/03/69/d4036954ca2daac0e20e61d3b726623d.jpg",
         "http://media-cache-ak0.pinimg.com/45x45/77/51/25/775125ca5141b23fc462a2895cb8d0e9.jpg",
         "http://media-cache-ak0.pinimg.com/45x45/2d/b3/57/2db35763f551abf1557f0e1c5d7965eb.jpg",
@@ -17388,7 +17388,7 @@ http_interactions:
         false, "title_tag": "div", "size": "boardRepTitle"}, "uid": "User-232"}, {"resource":
         {"name": "BoardResource", "options": {"board_id": "177962691464267334", "field_set_key":
         "pin_count"}}, "name": "PinCount", "children": [], "errorStrategy": 2, "data":
-        {"type": "board", "pin_count": 513, "id": "177962691464267334"}, "options":
+        {"type": "board", "pin_count": 512, "id": "177962691464267334"}, "options":
         {"can_update_count": false}, "uid": "PinCount-233"}, {"resource": null, "name":
         "BoardFollowButton", "children": [], "errorStrategy": 2, "options": {"board_id":
         "177962691464267334", "followed": false, "class_name": "boardFollowUnfollowButton",
@@ -17399,7 +17399,7 @@ http_interactions:
         "errorStrategy": 2, "data": {"is_collaborative": false, "layout": "default",
         "description": "", "cover_images": {"216x146": {"url": "http://media-cache-ec0.pinimg.com/custom_covers/216x146/177962691464267334_1363748422.jpg",
         "width": 216, "height": 146}}, "privacy": "public", "url": "/maryannrizzo/travel-new-york/",
-        "pin_count": 513, "pin_thumbnail_urls": ["http://media-cache-ak0.pinimg.com/45x45/98/86/f7/9886f7f1e4d682196fd5239f1e2958d3.jpg",
+        "pin_count": 512, "pin_thumbnail_urls": ["http://media-cache-ak0.pinimg.com/45x45/98/86/f7/9886f7f1e4d682196fd5239f1e2958d3.jpg",
         "http://media-cache-ec0.pinimg.com/45x45/d4/03/69/d4036954ca2daac0e20e61d3b726623d.jpg",
         "http://media-cache-ak0.pinimg.com/45x45/77/51/25/775125ca5141b23fc462a2895cb8d0e9.jpg",
         "http://media-cache-ak0.pinimg.com/45x45/2d/b3/57/2db35763f551abf1557f0e1c5d7965eb.jpg",
@@ -17698,11 +17698,11 @@ http_interactions:
         "layout": "default", "description": " :)", "cover_images": {"216x146": {"url":
         "http://media-cache-ec0.pinimg.com/custom_covers/216x146/177962691464303433_1407359342.jpg",
         "width": 216, "height": 146}}, "privacy": "public", "url": "/maryannrizzo/unlikely-friends/",
-        "pin_count": 221, "pin_thumbnail_urls": ["http://media-cache-ak0.pinimg.com/45x45/a1/12/87/a11287b17114b3cbb54efad5e68f1ecb.jpg",
-        "http://media-cache-ec0.pinimg.com/45x45/1a/cc/75/1acc75bb816bb477f92a633decea6029.jpg",
-        "http://media-cache-ec0.pinimg.com/45x45/d5/2a/9e/d52a9ea3ff6b3dd9482f96a898aa068b.jpg",
-        "http://media-cache-ak0.pinimg.com/45x45/f7/9e/65/f79e65f2d3f4c6edc3473d5633a32122.jpg",
-        "http://media-cache-ec0.pinimg.com/45x45/84/e9/17/84e9177a3a99fea2e97f1a3d992937a2.jpg"],
+        "pin_count": 221, "pin_thumbnail_urls": ["http://media-cache-ak0.pinimg.com/45x45/f7/9e/65/f79e65f2d3f4c6edc3473d5633a32122.jpg",
+        "http://media-cache-ec0.pinimg.com/45x45/84/e9/17/84e9177a3a99fea2e97f1a3d992937a2.jpg",
+        "http://media-cache-ak0.pinimg.com/45x45/a1/12/87/a11287b17114b3cbb54efad5e68f1ecb.jpg",
+        "http://media-cache-ak0.pinimg.com/45x45/07/bf/48/07bf484864067af980ac358b2b14a56f.jpg",
+        "http://media-cache-ec0.pinimg.com/45x45/fb/7f/fc/fb7ffc541e1c3fb9d7c674fba556a317.jpg"],
         "image_thumbnail_url": "http://media-cache-ak0.pinimg.com/upload/177962691464303433_board_thumbnail_2014-08-06-18-50-05_94449_60.jpg",
         "access": [], "collaborated_by_me": false, "owner": {"username": "maryannrizzo",
         "domain_verified": true, "image_medium_url": "http://media-cache-ec0.pinimg.com/avatars/maryannrizzo_1391629724_75.jpg",
@@ -18261,7 +18261,7 @@ http_interactions:
         false, "layout": "default", "description": "", "cover_images": {"216x146":
         {"url": "http://media-cache-ec0.pinimg.com/custom_covers/216x146/177962691464267334_1363748422.jpg",
         "width": 216, "height": 146}}, "privacy": "public", "url": "/maryannrizzo/travel-new-york/",
-        "pin_count": 513, "pin_thumbnail_urls": ["http://media-cache-ak0.pinimg.com/45x45/98/86/f7/9886f7f1e4d682196fd5239f1e2958d3.jpg",
+        "pin_count": 512, "pin_thumbnail_urls": ["http://media-cache-ak0.pinimg.com/45x45/98/86/f7/9886f7f1e4d682196fd5239f1e2958d3.jpg",
         "http://media-cache-ec0.pinimg.com/45x45/d4/03/69/d4036954ca2daac0e20e61d3b726623d.jpg",
         "http://media-cache-ak0.pinimg.com/45x45/77/51/25/775125ca5141b23fc462a2895cb8d0e9.jpg",
         "http://media-cache-ak0.pinimg.com/45x45/2d/b3/57/2db35763f551abf1557f0e1c5d7965eb.jpg",
@@ -18333,10 +18333,10 @@ http_interactions:
         false}, "layout": "fixed_height"}, "uid": "GridItems-251"}}, "resource_response":
         {"data": null, "error": null}}'
     http_version: 
-  recorded_at: Mon, 18 Aug 2014 19:53:14 GMT
+  recorded_at: Tue, 19 Aug 2014 14:21:23 GMT
 - request:
     method: get
-    uri: http://www.pinterest.com/resource/ProfileBoardsResource/get/?-=139094526248&data=%7B%22options%22:%7B%22field_set_key%22:%22grid_item%22,%22username%22:%22maryannrizzo%22,%22bookmarks%22:%5B%22LT4xNzc5NjI2OTE0NjQyNjgwNzg6MjQ2fDIwYjQwMTRmZjUwMDllNjhmMTMzOTliZmJmMWFiMzFjOGZlYTU1YmFlZGRlZTA5MGY1Njc0NjdkZDRmYjA3ZTQ=%22%5D%7D,%22context%22:%7B%22app_version%22:%222f53d32%22,%22https_exp%22:false%7D,%22module%22:%7B%22name%22:%22GridItems%22,%22options%22:%7B%22scrollable%22:true,%22show_grid_footer%22:false,%22centered%22:true,%22reflow_all%22:true,%22virtualize%22:true,%22item_options%22:%7B%22show_board_context%22:true,%22show_user_icon%22:false%7D,%22layout%22:%22fixed_height%22%7D%7D,%22append%22:true,%22error_strategy%22:1%7D&source_url=/maryannrizzo/
+    uri: http://www.pinterest.com/resource/ProfileBoardsResource/get/?-=139094526248&data=%7B%22options%22:%7B%22field_set_key%22:%22grid_item%22,%22username%22:%22maryannrizzo%22,%22bookmarks%22:%5B%22LT4xNzc5NjI2OTE0NjQyNjgwNzg6MjQ2fDIwYjQwMTRmZjUwMDllNjhmMTMzOTliZmJmMWFiMzFjOGZlYTU1YmFlZGRlZTA5MGY1Njc0NjdkZDRmYjA3ZTQ=%22%5D%7D,%22context%22:%7B%22app_version%22:%228e59a92%22,%22https_exp%22:false%7D,%22module%22:%7B%22name%22:%22GridItems%22,%22options%22:%7B%22scrollable%22:true,%22show_grid_footer%22:false,%22centered%22:true,%22reflow_all%22:true,%22virtualize%22:true,%22item_options%22:%7B%22show_board_context%22:true,%22show_user_icon%22:false%7D,%22layout%22:%22fixed_height%22%7D%7D,%22append%22:true,%22error_strategy%22:1%7D&source_url=/maryannrizzo/
     body:
       encoding: US-ASCII
       string: ''
@@ -18361,21 +18361,21 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 18 Aug 2014 19:53:15 GMT
+      - Tue, 19 Aug 2014 14:21:24 GMT
       Pinterest-Breed:
       - CORGI
       Pinterest-Generated-By:
-      - ngapp2-be4ea293
+      - ngapp2-99b518b5
       Pinterest-Version:
-      - 2f53d32
+      - 8e59a92
       Server:
       - nginx
       Set-Cookie:
-      - _pinterest_sess=TWc9PSZ6VHFpYy9aZithZUFYK1JaSHZBK3VwZ1NUUjR4eW52VllYcFByUXFPZldJekVlM2RPRTQrSkF6OTZjMUFvT3BxSVVxMXJ6VFJSa3RKZ1pyU0N6ZzVHTW1aNWZpOGdwaTRkMjFMZ3RmR29WNzhqUzNZZXYxbDhIdm4wRzJBSkcvUSY4dm43dHlxU29VRHh1T0Z3S0ZkQVdSdUp2dWs9;
-        Domain=.pinterest.com; expires=Thu, 13-Aug-2015 19:53:15 GMT; httponly; Max-Age=31103999;
+      - _pinterest_sess=TWc9PSZKbjNDU0RBRko2bGVwK01VRmFmbXlLdW1DUG1aQytydjBaeUdWMC91bm5oVGp5NFhud0tEbVRaM3dxME5YcEhTM21seHBvV3F4WGpaUkNBbFFwMW91MXBBTjVBN3lBWmVMRndGcnVnQ0hTb2tYWlRVelovTmRSY2xjSFJpbUQrOSZyMWVXN1hNMG13a1FJTkorUkJSYmt3OTFxeDA9;
+        Domain=.pinterest.com; expires=Fri, 14-Aug-2015 14:21:24 GMT; httponly; Max-Age=31103999;
         Path=/
-      - csrftoken=FaGEqor2ty3RZLRip2eDLplET3uROGoc; Domain=.pinterest.com; expires=Mon,
-        17-Aug-2015 19:53:15 GMT; Max-Age=31449600; Path=/
+      - csrftoken=xvGDGrrTAc94SSrp5d6hHL1kCFLSdgDc; Domain=.pinterest.com; expires=Tue,
+        18-Aug-2015 14:21:24 GMT; Max-Age=31449600; Path=/
       Vary:
       - User-Agent, Cookie, Accept-Encoding
       Via:
@@ -18385,13 +18385,13 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Pinterest-Rid:
-      - '540385801674'
+      - '104030166862'
       X-Varnish:
-      - '1490583376'
+      - '1575024222'
       X-Xss-Protection:
       - 1; mode=block
       Content-Length:
-      - '19135'
+      - '19136'
       Connection:
       - keep-alive
     body:
@@ -18404,7 +18404,7 @@ http_interactions:
         "com.pinterest", "twitter:app:id:ipad": "429047995", "og:title": "Pinterest",
         "twitter:card": "summary", "twitter:site": "@pinterest", "og:image": "http://passets-ec.pinterest.com/images/about/logos/Pinterest_Favicon.png",
         "twitter:app:id:iphone": "429047995"}, "title": "Pinterest"}, "client_context":
-        {"app_version": "2f53d32"}, "request_identifier": "540385801674", "module":
+        {"app_version": "8e59a92"}, "request_identifier": "104030166862", "module":
         {"html": "\n    \n\n\n\n\n    \n    \n\n        \n\n        \n                    <div
         class=\"item \"\n            >\n\n                        \n                                                                                            <div
         data-component-type=\"1\" class=\"noTouch Module BoardBase ajax Board boardCoverImage\"
@@ -20448,10 +20448,10 @@ http_interactions:
         "layout": "fixed_height"}, "uid": "GridItems-116"}}, "resource_response":
         {"data": null, "error": null}}'
     http_version: 
-  recorded_at: Mon, 18 Aug 2014 19:53:16 GMT
+  recorded_at: Tue, 19 Aug 2014 14:21:24 GMT
 - request:
     method: get
-    uri: http://www.pinterest.com/resource/ProfileBoardsResource/get/?-=139094526248&data=%7B%22options%22:%7B%22field_set_key%22:%22grid_item%22,%22username%22:%22maryannrizzo%22,%22bookmarks%22:%5B%22-end-%22%5D%7D,%22context%22:%7B%22app_version%22:%222f53d32%22,%22https_exp%22:false%7D,%22module%22:%7B%22name%22:%22GridItems%22,%22options%22:%7B%22scrollable%22:true,%22show_grid_footer%22:false,%22centered%22:true,%22reflow_all%22:true,%22virtualize%22:true,%22item_options%22:%7B%22show_board_context%22:true,%22show_user_icon%22:false%7D,%22layout%22:%22fixed_height%22%7D%7D,%22append%22:true,%22error_strategy%22:1%7D&source_url=/maryannrizzo/
+    uri: http://www.pinterest.com/resource/ProfileBoardsResource/get/?-=139094526248&data=%7B%22options%22:%7B%22field_set_key%22:%22grid_item%22,%22username%22:%22maryannrizzo%22,%22bookmarks%22:%5B%22-end-%22%5D%7D,%22context%22:%7B%22app_version%22:%228e59a92%22,%22https_exp%22:false%7D,%22module%22:%7B%22name%22:%22GridItems%22,%22options%22:%7B%22scrollable%22:true,%22show_grid_footer%22:false,%22centered%22:true,%22reflow_all%22:true,%22virtualize%22:true,%22item_options%22:%7B%22show_board_context%22:true,%22show_user_icon%22:false%7D,%22layout%22:%22fixed_height%22%7D%7D,%22append%22:true,%22error_strategy%22:1%7D&source_url=/maryannrizzo/
     body:
       encoding: US-ASCII
       string: ''
@@ -20476,21 +20476,21 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 18 Aug 2014 19:53:16 GMT
+      - Tue, 19 Aug 2014 14:21:24 GMT
       Pinterest-Breed:
       - CORGI
       Pinterest-Generated-By:
-      - ngapp2-629adc48
+      - ngapp2-0dd3a45f
       Pinterest-Version:
-      - 2f53d32
+      - 8e59a92
       Server:
       - nginx
       Set-Cookie:
-      - _pinterest_sess=TWc9PSY1YUdLT1VDZHM1TnphTFVzRGNKaEFqUkNGN3ZPS0d4M2tNOHgwYTg0cTk5VDhmUDZrM0hYODZZS01iWEtrbDJNbDVvSnk2VWpqK3piUmFuRUVkeVJ4U0RrWHcweitBdXNHSjNjUDVuMGhPdC9rSmpJcENFK0NDNWRDMTF2TGliNyZCemM2WmdLWm5EWFJrNVltSURWT3VnVXF2Uk09;
-        Domain=.pinterest.com; expires=Thu, 13-Aug-2015 19:53:16 GMT; httponly; Max-Age=31103999;
+      - _pinterest_sess=TWc9PSZEaXppc0pQY2tncGpYMTRJY0lZcE5nb1RiR25uY0F0V1pLblFZdEtkdnljUFV2bHFuWkE4YnpHTmJjR04vRWxMNlhqUWtCTmxQSTlzQTFpZVFWUkhOOTNCRkh3N3VEaFRVckRCV2pQWmV1dkZJcEhLVlRiVmt6Wk13ZjlCa25yOCZtak55OW1KSlNaR09TNXcwb3cxMU0wNWlhYTA9;
+        Domain=.pinterest.com; expires=Fri, 14-Aug-2015 14:21:24 GMT; httponly; Max-Age=31103999;
         Path=/
-      - csrftoken=MhOtV46yKpQmv4FnLC0VI4jU1wzs40ZD; Domain=.pinterest.com; expires=Mon,
-        17-Aug-2015 19:53:16 GMT; Max-Age=31449600; Path=/
+      - csrftoken=o5hwOYcG9fpqCQT1xeN6sDEm3qQJ7rM5; Domain=.pinterest.com; expires=Tue,
+        18-Aug-2015 14:21:24 GMT; Max-Age=31449600; Path=/
       Vary:
       - User-Agent, Cookie, Accept-Encoding
       Via:
@@ -20500,13 +20500,13 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Pinterest-Rid:
-      - '723310956701'
+      - '930552030299'
       X-Varnish:
-      - '969445297'
+      - '463739055'
       X-Xss-Protection:
       - 1; mode=block
       Content-Length:
-      - '690'
+      - '689'
       Connection:
       - keep-alive
     body:
@@ -20519,7 +20519,7 @@ http_interactions:
         "com.pinterest", "twitter:app:id:ipad": "429047995", "og:title": "Pinterest",
         "twitter:card": "summary", "twitter:site": "@pinterest", "og:image": "http://passets-ec.pinterest.com/images/about/logos/Pinterest_Favicon.png",
         "twitter:app:id:iphone": "429047995"}, "title": "Pinterest"}, "client_context":
-        {"app_version": "2f53d32"}, "request_identifier": "723310956701", "module":
+        {"app_version": "8e59a92"}, "request_identifier": "930552030299", "module":
         {"html": "\n    \n\n\n\n\n    \n    \n\n        \n\n\n", "tree": {"resource":
         {"name": "ProfileBoardsResource", "options": {"field_set_key": "grid_item",
         "username": "maryannrizzo", "bookmarks": ["-end-"]}}, "name": "GridItems",
@@ -20530,5 +20530,5 @@ http_interactions:
         {"show_board_context": true, "show_user_icon": false}, "layout": "fixed_height"},
         "uid": "GridItems-1"}}, "resource_response": {"data": null, "error": null}}'
     http_version: 
-  recorded_at: Mon, 18 Aug 2014 19:53:16 GMT
+  recorded_at: Tue, 19 Aug 2014 14:21:24 GMT
 recorded_with: VCR 2.8.0
