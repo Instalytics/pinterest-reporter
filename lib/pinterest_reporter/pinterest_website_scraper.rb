@@ -291,6 +291,7 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
     return nil if !page.css("div[class~=errorMessage]").empty?
     profile_name    = page.css("div[class~=titleBar]").css("div[class~=name]").text.to_s.strip
     followers_count = page.css("div[class~=FollowerCount]").text.to_s.strip.split[0].tr(",", "")
+    puts "#{profile_name} #{followers_count}"
     bio             = page.css("p[class~=aboutText]").text.to_s.strip
     boards          = page.css("div[class~=BoardCount]").text.to_s.split[0].tr(",", "")
     puts "pins #{page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/div/ul/li[2]/a/span[1]/text()").to_s.split[0]}"
