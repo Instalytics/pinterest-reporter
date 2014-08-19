@@ -293,6 +293,7 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
     followers_count = page.css("div[class~=FollowerCount]").text.to_s.strip.split[0].tr(",", "")
     bio             = page.css("p[class~=aboutText]").text.to_s.strip
     boards          = page.css("div[class~=BoardCount]").text.to_s.split[0].tr(",", "")
+    puts "pins #{page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/div/ul/li[2]/a/span[1]/text()").to_s.split[0]}"
     pins            = page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/div/ul/li[2]/a/span[1]/text()").to_s.split[0].tr(",", "")
     likes           = page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/div/ul/li[3]/a/span[1]/text()").to_s.strip.split[0].tr(",", "")
     followed        = page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/div/ul/li[5]/a/span[1]/text()").to_s.strip.split[0].tr(",", "")
