@@ -288,6 +288,9 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
 #body > div.App.full.AppBase.Module > div.appContent > div.mainContainer > div.UserProfilePage.Module > div.UserInfoBar.InfoBarBase.gridWidth.Module.centeredWithinWrapper.v1 > ul.userStats > li:nth-child(3) > a > span.value
   def scrape_data_for_profile_page(html)
     page  =  Nokogiri::HTML(html)
+    puts "------------"
+    puts "#{page}"
+    puts "------------"
     return nil if !page.css("div[class~=errorMessage]").empty?
     profile_name    = page.css("div[class~=titleBar]").css("div[class~=name]").text.to_s.strip
     followers_count = page.css("div[class~=FollowerCount]").text.to_s.strip.split[0].tr(",", "")
