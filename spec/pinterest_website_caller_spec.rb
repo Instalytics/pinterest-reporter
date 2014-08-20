@@ -11,16 +11,16 @@ describe PinterestWebsiteCaller do
 
   describe '#get_profile_page' do
     it 'returns website' do
-      VCR.use_cassette('get_profile_page') do
+      #VCR.use_cassette('get_profile_page') do
         #puts "#{subject.get_profile_page('ryansammy')}"
         expect(subject.get_profile_page('ryansammy')).not_to be(nil)
-      end
+      #end
     end
 
     it 'returns pinterest board page' do
-      VCR.use_cassette('get_board_page') do
+      #VCR.use_cassette('get_board_page') do
         expect(subject.get_board_page('ryansammy','cars')).not_to be(nil)
-      end
+      #end
     end
   end
 end
