@@ -14,7 +14,7 @@ class PinterestWebsiteCaller < PinterestInteractionsBase
       faraday.headers['Dnt'] = '1'
       faraday.use FaradayMiddleware::FollowRedirects
       faraday.use FaradayMiddleware::FollowRedirects, limit: 5
-      faraday.adapter  :net_http
+      faraday.adapter  :excon
     end
   end
 

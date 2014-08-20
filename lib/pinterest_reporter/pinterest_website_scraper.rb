@@ -288,24 +288,15 @@ class PinterestWebsiteScraper < PinterestInteractionsBase
 #body > div.App.full.AppBase.Module > div.appContent > div.mainContainer > div.UserProfilePage.Module > div.UserInfoBar.InfoBarBase.gridWidth.Module.centeredWithinWrapper.v1 > ul.userStats > li:nth-child(3) > a > span.value
   def scrape_data_for_profile_page(html)
     page  =  Nokogiri::HTML(html)
-    puts "------------"
-    puts "#{page}"
-    puts "------------"
     return nil if !page.css("div[class~=errorMessage]").empty?
     profile_name    = page.css("div[class~=titleBar]").css("div[class~=name]").text.to_s.strip
     followers_count = page.css("div[class~=FollowerCount]").text.to_s.strip.split[0].tr(",", "")
     info_bar = page.css("div[class~=UserInfoBar]").css("div[class~=tabs]").text.to_s.strip.tr("\n"," ")
-    puts "info_bar: #{info_bar}"
     pins = info_bar.match(/\d?,?\d+ Pins/).to_s.split[0].tr(",","")
     likes = info_bar.match(/\d?,?\d+ Likes/).to_s.split[0].tr(",","")
     followed = info_bar.match(/\d?,?\d+ Following/).to_s.split[0].tr(",","")
-    puts "title_bar: #{page.css("div[class~=titleBar]").text}"
     bio             = page.css("p[class~=aboutText]").text.to_s.strip
     boards          = page.css("div[class~=BoardCount]").text.to_s.split[0].tr(",", "")
-    #puts "pins #{page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/div/ul/li[2]/a/span[1]/text()").to_s.split[0]}"
-    #pins            = page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/div/ul/li[2]/a/span[1]/text()").to_s.split[0].tr(",", "")
-    likes           = page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/div/ul/li[3]/a/span[1]/text()").to_s.strip.split[0].tr(",", "")
-    followed        = page.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div[2]/div/ul/li[5]/a/span[1]/text()").to_s.strip.split[0].tr(",", "")
     return {"profile_name" => profile_name, "followers_count" => followers_count, "profile_description" => bio,
             "boards_count" => boards, "pins_count" => pins, "likes_count" => likes, "followed" => followed}
   end
